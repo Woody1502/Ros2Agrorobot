@@ -1,0 +1,24 @@
+running develop
+running egg_info
+writing my_robot.egg-info/PKG-INFO
+writing dependency_links to my_robot.egg-info/dependency_links.txt
+writing entry points to my_robot.egg-info/entry_points.txt
+writing requirements to my_robot.egg-info/requires.txt
+writing top-level names to my_robot.egg-info/top_level.txt
+reading manifest file 'my_robot.egg-info/SOURCES.txt'
+writing manifest file 'my_robot.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my-robot.egg-link (link to .)
+Installing state_publisher script to /home/alexey/ros2_ws/install/my_robot/lib/my_robot
+
+Installed /home/alexey/ros2_ws/build/my_robot
+running symlink_data
+symbolically linking /home/alexey/ros2_ws/build/my_robot/meshes/link_w.stl -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+symbolically linking /home/alexey/ros2_ws/build/my_robot/meshes/link_f_l.stl -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+symbolically linking /home/alexey/ros2_ws/build/my_robot/meshes/link_f_l_w.stl -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+symbolically linking /home/alexey/ros2_ws/build/my_robot/meshes/link_f_r.stl -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+symbolically linking /home/alexey/ros2_ws/build/my_robot/meshes/link_chair.stl -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+symbolically linking /home/alexey/ros2_ws/build/my_robot/meshes/link_r_w.stl -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+symbolically linking /home/alexey/ros2_ws/build/my_robot/meshes/link_l_w.stl -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+symbolically linking /home/alexey/ros2_ws/build/my_robot/meshes/base_link.stl -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+symbolically linking /home/alexey/ros2_ws/build/my_robot/meshes/link_f_r_w.stl -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
