@@ -1,0 +1,43 @@
+[0.442s] Invoking command in '/home/alexey/ros2_ws/build/my_robot': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alexey/ros2_ws/build/my_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/alexey/ros2_ws/build/my_robot/build
+[0.612s] running develop
+[0.718s] Removing /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my-robot.egg-link (link to .)
+[0.736s] Invoked command in '/home/alexey/ros2_ws/build/my_robot' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alexey/ros2_ws/build/my_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/alexey/ros2_ws/build/my_robot/build
+[0.737s] Invoking command in '/home/alexey/ros2_ws/src/my_robot': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alexey/ros2_ws/build/my_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_robot build --build-base /home/alexey/ros2_ws/build/my_robot/build install --record /home/alexey/ros2_ws/build/my_robot/install.log --single-version-externally-managed install_data --force
+[0.886s] running egg_info
+[0.896s] writing ../../build/my_robot/my_robot.egg-info/PKG-INFO
+[0.896s] writing dependency_links to ../../build/my_robot/my_robot.egg-info/dependency_links.txt
+[0.896s] writing entry points to ../../build/my_robot/my_robot.egg-info/entry_points.txt
+[0.896s] writing requirements to ../../build/my_robot/my_robot.egg-info/requires.txt
+[0.896s] writing top-level names to ../../build/my_robot/my_robot.egg-info/top_level.txt
+[0.918s] reading manifest file '../../build/my_robot/my_robot.egg-info/SOURCES.txt'
+[0.918s] writing manifest file '../../build/my_robot/my_robot.egg-info/SOURCES.txt'
+[0.918s] running build
+[0.919s] running build_py
+[0.919s] running install
+[0.923s] running install_lib
+[0.933s] creating /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot
+[0.933s] copying /home/alexey/ros2_ws/build/my_robot/build/lib/my_robot/state_publisher.py -> /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot
+[0.934s] copying /home/alexey/ros2_ws/build/my_robot/build/lib/my_robot/__init__.py -> /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot
+[0.934s] byte-compiling /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot/state_publisher.py to state_publisher.cpython-312.pyc
+[0.934s] byte-compiling /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot/__init__.py to __init__.cpython-312.pyc
+[0.935s] running install_data
+[0.935s] copying resource/my_robot -> /home/alexey/ros2_ws/install/my_robot/share/ament_index/resource_index/packages
+[0.935s] copying package.xml -> /home/alexey/ros2_ws/install/my_robot/share/my_robot
+[0.935s] copying meshes/link_f_l_w.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+[0.935s] copying meshes/link_chair.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+[0.935s] copying meshes/link_w.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+[0.935s] copying meshes/link_l_w.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+[0.935s] copying meshes/link_r_w.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+[0.936s] copying meshes/bushes.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+[0.937s] copying meshes/base_link.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+[0.937s] copying meshes/link_f_l.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+[0.937s] copying meshes/link_f_r.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+[0.937s] copying meshes/link_f_r_w.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+[0.937s] copying meshes/borozda.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+[0.938s] copying config/controllers.yaml -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/config
+[0.938s] running install_egg_info
+[0.950s] Copying ../../build/my_robot/my_robot.egg-info to /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot-0.0.0-py3.12.egg-info
+[0.950s] running install_scripts
+[1.020s] Installing state_publisher script to /home/alexey/ros2_ws/install/my_robot/lib/my_robot
+[1.022s] writing list of installed files to '/home/alexey/ros2_ws/build/my_robot/install.log'
+[1.039s] Invoked command in '/home/alexey/ros2_ws/src/my_robot' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alexey/ros2_ws/build/my_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_robot build --build-base /home/alexey/ros2_ws/build/my_robot/build install --record /home/alexey/ros2_ws/build/my_robot/install.log --single-version-externally-managed install_data --force

@@ -8,6 +8,8 @@ material GroundTexture
       texture_unit
       {
         texture DIRT.png
+        filtering anisotropic
+        max_anisotropy 16
       }
     }
   }

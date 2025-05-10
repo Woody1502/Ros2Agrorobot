@@ -1,0 +1,6 @@
+-
+  ros_topic_name: "/cmd_vel"          # Топик в Gazebo
+  gz_topic_name: "/model/my_robot/cmd_vel"                         # Топик в ROS 2
+  ros_type_name: "geometry_msgs/msg/Twist"      # Тип в ROS 2
+  gz_type_name: "gz.msgs.Twist"                 # Тип в Gazebo
+  direction: ROS_TO_GZ                   # Направление

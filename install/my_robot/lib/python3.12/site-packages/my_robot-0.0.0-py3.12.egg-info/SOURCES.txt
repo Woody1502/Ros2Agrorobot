@@ -4,12 +4,17 @@ setup.py
 ../../build/my_robot/my_robot.egg-info/PKG-INFO
 ../../build/my_robot/my_robot.egg-info/SOURCES.txt
 ../../build/my_robot/my_robot.egg-info/dependency_links.txt
-../../build/my_robot/my_robot.egg-info/entry_points.txt
 ../../build/my_robot/my_robot.egg-info/requires.txt
 ../../build/my_robot/my_robot.egg-info/top_level.txt
 ../../build/my_robot/my_robot.egg-info/zip-safe
+config/bridge_config.yaml
+config/controllers.yaml
+config/joint_names_robot.yaml
+launch/control.launch.py
 launch/my_robot.launch.py
 meshes/base_link.STL
+meshes/borozda.STL
+meshes/bushes.STL
 meshes/link_chair.STL
 meshes/link_f_l.STL
 meshes/link_f_l_w.STL
@@ -25,3 +30,6 @@ test/test_copyright.py
 test/test_flake8.py
 test/test_pep257.py
 urdf/robot.urdf
+urdf/robot.xacro
+urdf/robot2.urdf
+urdf/run.sdf

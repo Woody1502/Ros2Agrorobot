@@ -1,66 +1,56 @@
-import os
-from ament_index_python.packages import get_package_share_directory
-from launch import LaunchDescription
-from launch_ros.actions import Node
-from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
 
-def generate_launch_description():
-    # Путь к URDF-файлу
-    urdf_file = 'robot.urdf'
-    package_name = 'my_robot'
-    
-    # Полный путь к URDF
-    urdf_path = os.path.join(
-        get_package_share_directory(package_name),
-        'urdf',
-        urdf_file
-    )
-    with open(urdf_path, 'r') as infp:
-        robot_desc = infp.read()
-    # Проверка существования файла
-    if not os.path.exists(urdf_path):
-        raise RuntimeError(f"URDF file not found: {urdf_path}")
-    
-    # Аргумент для выбора RViz config (опционально)
-    rviz_config_file = LaunchConfiguration('rviz_config')
-    
-    return LaunchDescription([
-        # Аргумент для RViz config
-        DeclareLaunchArgument(
-            'rviz_config',
-            default_value=os.path.join(
-                get_package_share_directory(package_name),
-                'rviz',
-                'view_robot.rviz'
-            ),
-            description='Path to RViz config file'
-        ),
-        
-        # Запуск узла robot_state_publisher
-        Node(
-            package='robot_state_publisher',
-            executable='robot_state_publisher',
-            name='robot_state_publisher',
-            output='screen',
-            arguments=[urdf_path],
-            parameters=[{'robot_description': robot_desc}]
-        ),
-        
-        # Запуск RViz2
-        Node(
-            package='rviz2',
-            executable='rviz2',
-            name='rviz2',
-            output='screen',
-            arguments=['-d', rviz_config_file],
-        ),
-        
-        # Запуск joint_state_publisher (для ручного управления суставами)
-        Node(
-            package='joint_state_publisher_gui',
-            executable='joint_state_publisher_gui',
-            name='joint_state_publisher_gui',
-            output='screen'
-        )
-    ])
+    # Параметры для контроллера дифференциального привода
+    diff_drive_controller:
+      type: diff_drive_controller/DiffDriveController
+
+      left_wheel_names: ["l_w_wheel_joint"]
+      right_wheel_names: ["r_w_wheel_joint"]
+
+      wheel_separation: 0.2  # Расстояние между колесами (примерное)
+      wheel_radius: 0.05     # Радиус колеса (примерное)
+
+      wheel_separation_multiplier: 1.0
+      left_wheel_radius_multiplier: 1.0
+      right_wheel_radius_multiplier: 1.0
+
+      odom_frame_id: odom
+      base_frame_id: base_link
+      pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.03]
+      twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.03]
+
+      open_loop: true
+      enable_odom_tf: true
+
+      cmd_vel_timeout: 0.5
+      publish_limited_velocity: true
+      use_stamped_vel: false
+
+      velocity_rolling_window_size: 10
+
+      # Ограничения
+      linear:
+        x:
+          has_velocity_limits: true
+          max_velocity: 1.0  # м/с
+          has_acceleration_limits: true
+          max_acceleration: 0.5  # м/с²
+      angular:
+        z:
+          has_velocity_limits: true
+          max_velocity: 1.0  # рад/с
+          has_acceleration_limits: true
+          max_acceleration: 0.5  # рад/с²
+
+    # Контроллер для рулевых механизмов
+    steering_controller:
+      type: position_controllers/JointGroupPositionController
+      joints:
+        - f_r_w_steering_joint
+        - f_l_w_steering_joint
+
+    # Контроллер состояния суставов
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster

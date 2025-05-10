@@ -1,0 +1,16 @@
+[0.469s] Invoking command in '/home/alexey/ros2_ws/src/my_robot': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alexey/ros2_ws/build/my_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_robot build --build-base /home/alexey/ros2_ws/build/my_robot/build install --record /home/alexey/ros2_ws/build/my_robot/install.log --single-version-externally-managed install_data
+[0.617s] running egg_info
+[0.627s] writing ../../build/my_robot/my_robot.egg-info/PKG-INFO
+[0.627s] writing dependency_links to ../../build/my_robot/my_robot.egg-info/dependency_links.txt
+[0.627s] writing requirements to ../../build/my_robot/my_robot.egg-info/requires.txt
+[0.627s] writing top-level names to ../../build/my_robot/my_robot.egg-info/top_level.txt
+[0.647s] reading manifest file '../../build/my_robot/my_robot.egg-info/SOURCES.txt'
+[0.647s] writing manifest file '../../build/my_robot/my_robot.egg-info/SOURCES.txt'
+[0.647s] running build
+[0.647s] running build_py
+[0.648s] running install
+[0.651s] running install_lib
+[0.662s] running install_data
+[0.662s] copying package.xml -> /home/alexey/ros2_ws/install/my_robot/share/my_robot
+[0.662s] error: can't copy 'meshes': doesn't exist or not a regular file
+[0.674s] Invoked command in '/home/alexey/ros2_ws/src/my_robot' returned '1': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alexey/ros2_ws/build/my_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_robot build --build-base /home/alexey/ros2_ws/build/my_robot/build install --record /home/alexey/ros2_ws/build/my_robot/install.log --single-version-externally-managed install_data

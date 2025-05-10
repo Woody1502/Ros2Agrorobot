@@ -1,0 +1,2 @@
+Invoking command in '/home/alexey/ros2_ws/build/my_robot': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/alexey/ros2_ws/src/my_robot -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/alexey/ros2_ws/install/my_robot
+Invoked command in '/home/alexey/ros2_ws/build/my_robot' returned '1': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/alexey/ros2_ws/src/my_robot -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/alexey/ros2_ws/install/my_robot
