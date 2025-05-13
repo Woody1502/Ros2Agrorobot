@@ -1,5 +1,7 @@
-<sdf version='1.10'>
+<sdf version='1.10' xmlns:ros2_control="http://playerstage.sourceforge.net/gazebo/xmlschema/#ros2_control">
+      
   <world name='car_world'>
+
     <physics name='1ms' type='ignored'>
       <max_step_size>0.0050000000000000001</max_step_size>
       <real_time_factor>1</real_time_factor>
@@ -491,7 +493,7 @@
       </link>
       <self_collide>false</self_collide>
     </model>
-    <model name='my_robot'>
+    <!-- model name='my_robot'>
       <frame name='lidar_frame' attached_to='base_link'>
         <pose>-0.10000000000000001 0 0.10000000000000001 0 0 3.1415899999999999</pose>
       </frame>
@@ -1068,26 +1070,51 @@
       <frame name='link_w' attached_to='joint_w'>
         <pose>0 0 0 0 0 0</pose>
       </frame>
-      <plugin name='gz::sim::systems::DiffDrive' filename='gz-sim-diff-drive-system'>
-        <left_joint>joint_f_l_w</left_joint>
-        <right_joint>joint_f_r_w</right_joint>
-        <wheel_separation>0.117</wheel_separation>
-        <wheel_radius>0.5</wheel_radius>
-        <odom_publish_frequency>1</odom_publish_frequency>
-        <topic>/model/my_robot/cmd_vel</topic>
-      </plugin>
-      <plugin filename="gz-sim-triggered-publisher-system"
-      name="gz::sim::systems::TriggeredPublisher">
-  <input type="gz.msgs.Int32" topic="/keyboard/keypress">
-      <match field="data">16777235</match>
-  </input>
-  <output type="gz.msgs.Twist" topic="/model/my_robot/cmd_vel">
-      linear: {x: 0.5}, angular: {z: 0.0}
-  </output>
-</plugin>
+
+     <ros2_control name="GazeboSimSystem" type="system">
+    <hardware>
+      <plugin>gz_ros2_control/GazeboSystem</plugin>
+    </hardware>
+    
+ 
+    <joint name="joint_f_l">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    
+    <joint name="joint_f_r">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+
+    <joint name="joint_l_w">
+      <command_interface name="velocity"/>
+      <state_interface name="velocity"/>
+      <state_interface name="position"/>
+    </joint>
+    
+    <joint name="joint_r_w">
+      <command_interface name="velocity"/>
+      <state_interface name="velocity"/>
+      <state_interface name="position"/>
+    </joint>
+  </ros2_control>
+
+
+  <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+    <parameters>$(find my_robot_config)/config/controllers.yaml</parameters>
+  </plugin>
+     
+
+
       <static>false</static>
       <self_collide>false</self_collide>
-    </model>
+    </model >
+  -->
+
     <model name='bush_1'>
       <pose>-0.17153893968311185 0.0027062077410053287 0 0 0 0</pose>
       <link name='link'>

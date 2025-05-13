@@ -1,86 +1,96 @@
+from ament_index_python import get_package_share_directory
+from launch import LaunchDescription
+from launch.actions import IncludeLaunchDescription, ExecuteProcess
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import PathJoinSubstitution, FindExecutable
+from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
+import os
+
+
+
+
+
 import os
 from ament_index_python.packages import get_package_share_directory
+from ament_index_python.packages import get_package_share_path
 from launch import LaunchDescription
-from launch.actions import ExecuteProcess, IncludeLaunchDescription, RegisterEventHandler
-from launch.event_handlers import OnProcessExit
-from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration, Command
+from launch.actions import DeclareLaunchArgument
 from launch_ros.actions import Node
-from launch.substitutions import Command
+import launch_ros.descriptions
+from launch_ros.parameter_descriptions import ParameterValue
+from launch import LaunchDescription
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 def generate_launch_description():
-    pkg_path = get_package_share_directory('my_robot')
-    xacro_file = os.path.join(pkg_path, 'urdf', 'robot.xacro')
-   
-    gazebo_world = os.path.join(pkg_path, 'urdf', 'run.sdf')
-    controllers_file = os.path.join(pkg_path, 'config', 'controllers.yaml')
 
-    # Генерация URDF из XACRO
-    robot_description = Command(
-        ['xacro ', xacro_file, ' use_gazebo:=true']
+    # Check if we're told to use sim time
+    use_sim_time = LaunchConfiguration('use_sim_time')
+
+    world_file = PathJoinSubstitution([
+        FindPackageShare('my_robot'),
+        'urdf',
+        'run.sdf'
+    ])
+    # Get the urdf/xacro file path
+    path_to_urdf = os.path.join(get_package_share_path('my_robot'),'urdf','robot.xacro')
+    
+    # Create a robot_state_publisher node
+    node_robot_state_publisher = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        name='robot_state_publisher',
+        output='screen',
+        parameters=[{
+            'robot_description': ParameterValue(Command(['xacro ', str(path_to_urdf)]), value_type=str)
+        }]
     )
 
-    # Запуск Gazebo
-    gazebo = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')
-        ]),
-        launch_arguments={'world': gazebo_world}.items()
-    )
+    # Use your custom Gazebo world (optional). Replace 'empty.sdf' with the word "world" (no "" needed)
+    # world = os.path.join(
+    #     get_package_share_directory(package_name), "worlds", "empty_world.sdf"
+    # )
 
-    # Запуск робота в Gazebo
-    spawn_entity = Node(
-        package='gazebo_ros',
-        executable='spawn_entity.py',
-        arguments=['-topic', 'robot_description', '-entity', 'my_robot'],
-        output='screen'
-    )
-
-    # Узлы для ROS 2 Control
-    controller_manager = Node(
-        package='controller_manager',
-        executable='ros2_control_node',
-        parameters=[{'robot_description': robot_description}, controllers_file],
-        output='screen'
-    )
-
-    joint_state_broadcaster = Node(
-        package='controller_manager',
-        executable='spawner',
-        arguments=['joint_state_broadcaster'],
-        output='screen'
-    )
-
-    diff_drive_controller = Node(
-        package='controller_manager',
-        executable='spawner',
-        arguments=['diff_drive_controller'],
-        output='screen'
-    )
-
-    steering_controller = Node(
-        package='controller_manager',
-        executable='spawner',
-        arguments=['steering_controller'],
-        output='screen'
-    )
-
-
-
-    return LaunchDescription([
-        gazebo,
-        spawn_entity,
-        controller_manager,
-        RegisterEventHandler(
-            event_handler=OnProcessExit(
-                target_action=spawn_entity,
-                on_exit=[joint_state_broadcaster],
-            )
+    gz_sim = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            [
+                os.path.join(
+                    get_package_share_directory("ros_gz_sim"),
+                    "launch",
+                    "gz_sim.launch.py",
+                )
+            ]
         ),
-        RegisterEventHandler(
-            event_handler=OnProcessExit(
-                target_action=joint_state_broadcaster,
-                on_exit=[diff_drive_controller, steering_controller],
-            )
-        )
-        
+        launch_arguments={"gz_args": [" -r -v 4 ", world_file]}.items(),
+    )
+
+    # Spawn the robot in Gazebo
+    spawn_entity = Node(
+        package="ros_gz_sim",
+        executable="create",
+        arguments=[
+            "-name",
+            "robot1",
+            "-topic",
+            "/robot_description",
+            "-x",
+            "0",
+            "-y",
+            "0",
+            "-z",
+            "1.4",
+        ],
+        output="screen",
+    )
+
+    # Launch!
+    return LaunchDescription([
+        DeclareLaunchArgument(
+            'use_sim_time',
+            default_value='false',
+            description='Use sim time if true'),
+
+        node_robot_state_publisher, gz_sim, spawn_entity
     ])

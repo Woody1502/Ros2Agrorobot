@@ -45,7 +45,7 @@
   </xacro:macro>
 
   <!-- Wheel macro -->
-  <xacro:macro name="wheel_assembly" params="prefix parent xyz rpy steering_limits is_driven:=false">
+  <xacro:macro name="wheel_assembly" params="prefix parent xyz rpy steering_lower steering_upper is_driven:=false">
     <!-- Steering link (f_l или f_r) -->
     <xacro:standard_link 
       name="link_${prefix}" 
@@ -63,7 +63,7 @@
       <child link="link_${prefix}"/>
       <origin xyz="${xyz}" rpy="${rpy}"/>
       <axis xyz="0 1 0"/>
-      <limit lower="${steering_limits[0]}" upper="${steering_limits[1]}" effort="100" velocity="1.0"/>
+      <limit lower="${steering_lower}" upper="${steering_upper}" effort="100" velocity="1.0"/>
     </joint>
 
     <!-- Wheel (f_l_w или f_r_w) -->
@@ -166,10 +166,10 @@
 
   <!-- Front wheels (steerable) -->
   <xacro:wheel_assembly prefix="f_r" parent="base_link" 
-    xyz="-0.11936 0.03 -0.083652" rpy="1.5708 0 3.1403" steering_limits="-0.5 0.5"/>
+    xyz="-0.11936 0.03 -0.083652" rpy="1.5708 0 3.1403" steering_lower="-1.57" steering_upper="1.57"/>
   
   <xacro:wheel_assembly prefix="f_l" parent="base_link" 
-    xyz="-0.11936 -0.03 -0.083652" rpy="1.5708 0 -0.0013373" steering_limits="-0.5 0.5"/>
+    xyz="-0.11936 -0.03 -0.083652" rpy="1.5708 0 -0.0013373" steering_lower="-1.57" steering_upper="1.57"/>
 
   <!-- Rear wheels (driven) -->
   <xacro:rear_wheel_assembly prefix="r" parent="base_link" is_driven="true"
@@ -210,9 +210,10 @@
 
   <!-- ==================== ROS 2 CONTROL ==================== -->
   <xacro:if value="$(arg use_gazebo)">
-    <ros2_control name="GazeboSystem" type="system">
+
+    <ros2_control name="RobotController" type="system">
       <hardware>
-        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        <plugin>gz_ros2_control/GazeboSimSystem</plugin>
       </hardware>
       
       <!-- Wheel motors (velocity control) -->
@@ -237,7 +238,7 @@
       <!-- Steering mechanisms (position control) -->
       <joint name="joint_f_r">
         <command_interface name="position">
-          <param name="min">-0.5</param>
+          <param name="min">0</param>
           <param name="max">0.5</param>
         </command_interface>
         <state_interface name="position"/>
@@ -245,7 +246,7 @@
       
       <joint name="joint_f_l">
         <command_interface name="position">
-          <param name="min">-0.5</param>
+          <param name="min">0</param>
           <param name="max">0.5</param>
         </command_interface>
         <state_interface name="position"/>
@@ -257,7 +258,7 @@
   <xacro:if value="$(arg use_gazebo)">
     <!-- ROS 2 Control plugin -->
     <gazebo>
-      <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+      <plugin name="gz_ros2_control::GazeboSimROS2ControlPlugin" filename="libgz_ros2_control-system.so">
         <parameters>$(find my_robot)/config/controllers.yaml</parameters>
       </plugin>
     </gazebo>

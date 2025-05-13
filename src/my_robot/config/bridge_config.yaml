@@ -3,4 +3,10 @@
   gz_topic_name: "/model/my_robot/cmd_vel"                         # Топик в ROS 2
   ros_type_name: "geometry_msgs/msg/Twist"      # Тип в ROS 2
   gz_type_name: "gz.msgs.Twist"                 # Тип в Gazebo
-  direction: ROS_TO_GZ                   # Направление
+  direction: ROS_TO_GZ    
+  
+- ros_topic_name: "clock"
+  gz_topic_name: "clock"
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+  gz_type_name: "gz.msgs.Clock"
+  direction: GZ_TO_ROS          # Направление

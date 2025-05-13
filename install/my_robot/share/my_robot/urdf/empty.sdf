@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <world name="empty">
+    <!-- Пустой мир -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Ваш робот -->
+    <include>
+      <uri>model://my_robot</uri>  <!-- Если модель зарегистрирована -->
+      <!-- ИЛИ прямое включение файла -->
+      <name>my_robot</name>
+      <pose>0 0 0.5 0 0 0</pose>
+    </include>
+  </world>
+</sdf>

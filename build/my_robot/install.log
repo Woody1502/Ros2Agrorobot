@@ -5,8 +5,13 @@
 /home/alexey/ros2_ws/install/my_robot/share/ament_index/resource_index/packages/my_robot
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/package.xml
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/launch/my_robot.launch.py
+/home/alexey/ros2_ws/install/my_robot/share/my_robot/launch/test.launch.py
+/home/alexey/ros2_ws/install/my_robot/share/my_robot/launch/test2.launch.py
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/launch/control.launch.py
+/home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/empty.sdf
+/home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/model.sdf
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/robot.urdf
+/home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/world.sdf
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/run.sdf
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/robot.xacro
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/robot2.urdf

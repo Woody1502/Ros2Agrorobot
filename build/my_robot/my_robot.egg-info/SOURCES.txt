@@ -12,6 +12,8 @@ config/controllers.yaml
 config/joint_names_robot.yaml
 launch/control.launch.py
 launch/my_robot.launch.py
+launch/test.launch.py
+launch/test2.launch.py
 meshes/base_link.STL
 meshes/borozda.STL
 meshes/bushes.STL
@@ -29,7 +31,10 @@ resource/my_robot
 test/test_copyright.py
 test/test_flake8.py
 test/test_pep257.py
+urdf/empty.sdf
+urdf/model.sdf
 urdf/robot.urdf
 urdf/robot.xacro
 urdf/robot2.urdf
 urdf/run.sdf
+urdf/world.sdf
