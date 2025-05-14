@@ -1,0 +1,19 @@
+material GroundTexture
+{
+  technique
+  {
+    pass
+    {
+      ambient 1.0 1.0 1.0 1.0
+      diffuse 1.0 1.0 1.0 1.0
+      specular 0.0 0.0 0.0 0.0
+
+      texture_unit
+      {
+        texture b_dirt.png // Имя вашего PNG-файла
+        filtering anisotropic
+        max_anisotropy 16
+      }
+    }
+  }
+}

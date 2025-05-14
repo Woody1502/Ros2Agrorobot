@@ -36,5 +36,7 @@ urdf/model.sdf
 urdf/robot.urdf
 urdf/robot.xacro
 urdf/robot2.urdf
+urdf/robot_description.urdf
 urdf/run.sdf
+urdf/test.urdf
 urdf/world.sdf

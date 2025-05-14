@@ -15,14 +15,14 @@ def generate_launch_description():
     world_file = PathJoinSubstitution([pkg_my_robot, 'urdf', 'run.sdf'])  # Измените на ваш мир
 
     # Аргументы запуска
-    use_sim_time = LaunchConfiguration('use_sim_time', default=True)
-    use_ros2_control = LaunchConfiguration('use_ros2_control', default=True)
+    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
+    use_ros2_control = LaunchConfiguration('use_ros2_control', default='true')
     
     # Описание робота из xacro
     robot_description_content = Command(
         [
             FindExecutable(name='xacro'), ' ', xacro_file,
-            ' use_sim_time:=', use_sim_time, ' use_ros2_control:=', use_ros2_control
+            ' sim_mode:=', use_sim_time, ' use_ros2_control:=', use_ros2_control
         ]
     )
     robot_description = {'robot_description': robot_description_content}
@@ -47,7 +47,7 @@ def generate_launch_description():
             )
         ),
         launch_arguments={
-            'gz_args': ['-r ' , world_file],
+            'gz_args': ['-r ' , world_file, ' -v' ' 4 '],
             'on_exit_shutdiwn': 'true',
         }.items()
     )
@@ -68,18 +68,28 @@ def generate_launch_description():
     )
 
     # Контроллеры
-    
-    acker_drive_spawner = Node(
+    ros2_control_params=PathJoinSubstitution([pkg_my_robot, 'config', 'controllers.yaml']) 
+    rear_drive_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["ackermann_controller"],
+        arguments=["diff_drive_controller", "--param-file",ros2_control_params],
     )
-
+    
+    # front_stearing_spawner = Node(
+    #     package="controller_manager",
+    #     executable="spawner",
+    #     arguments=["front_steering_controller", "--param-file",ros2_control_params],
+    # )
     joint_broad_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["joint_state_broadcaster"],
+        arguments=["joint_broad", "--param-file",ros2_control_params],
     )
+    # joint_rear_spawner = Node(
+    #     package="controller_manager",
+    #     executable="spawner",
+    #     arguments=["front_wheels_velocity_controller"],
+    # )
 
     bridge_params=os.path.join(get_package_share_directory('my_robot'),'config','bridge_config.yaml')
     ros_gz_bridge=Node(
@@ -101,20 +111,18 @@ def generate_launch_description():
     #    output='screen'
     #
     return LaunchDescription([
-        DeclareLaunchArgument(
-            'use_sim_time',
-            default_value='true',
-            description='Use simulation (Gazebo) clock if true'
-        ),
-
+     
         # Запуск компонентов
-        gazebo,
         robot_state_publisher,
+        gazebo,
+        
         spawn_entity,
-        acker_drive_spawner,
         ros_gz_bridge,
-        joint_broad_spawner
-
+        joint_broad_spawner,
+        rear_drive_spawner,
+        
+        #front_stearing_spawner,
+      
         # Загрузка контроллеров после спавна робота
         # RegisterEventHandler(
         #     event_handler=OnProcessExit(

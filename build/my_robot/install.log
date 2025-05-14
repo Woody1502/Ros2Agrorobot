@@ -13,8 +13,10 @@
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/robot.urdf
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/world.sdf
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/run.sdf
+/home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/test.urdf
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/robot.xacro
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/robot2.urdf
+/home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/robot_description.urdf
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes/link_f_l_w.STL
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes/link_chair.STL
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes/link_w.STL

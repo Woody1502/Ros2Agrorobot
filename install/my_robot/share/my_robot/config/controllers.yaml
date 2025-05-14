@@ -1,15 +1,62 @@
 controller_manager:
   ros__parameters:
-    update_rate: 1000
-   
-
-    joint_state_broadcaster:
+    update_rate: 200  # Гц (совместимо с Gazebo)
+    use_sim_time: true
+    joint_broad:
       type: joint_state_broadcaster/JointStateBroadcaster
+    # Контроллер для задних ведущих колес (Diff Drive)
+diff_drive_controller:
+  ros__parameters:
+    type: diff_drive_controller/DiffDriveController
+  
+    left_wheel_names: ['joint_l_w']
+    right_wheel_names: ['joint_r_w']
+    wheel_separation: 0.5  # Ширина колеи (настройте под ваш робот)
+    wheel_radius: 0.1      # Радиус колес
+    publish_rate: 50.0     # Частота публикации odometry
 
-    ackermann_controller:
-      type: ackermann_steering_controller/AckermannSteeringController
-      ros__parameters:
-        front_wheel_names: ["joint_f_l", "joint_f_r"]
-        rear_wheel_names: ["joint_l_w", "joint_r_w"]
-        wheelbase: 0.5
-        wheel_radius: 0.1
+    odom_frame_id: odom
+    base_frame_id: base_link
+    pose_covariance_diagonal: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    twist_covariance_diagonal: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+    position_feedback: false
+    open_loop: true
+    enable_odom_tf: true
+
+    cmd_vel_timeout: 0.5 # seconds
+    publish_limited_velocity: true
+    velocity_rolling_window_size: 10
+
+    linear.x.max_velocity: .NAN
+    linear.x.min_velocity: .NAN
+    linear.x.max_acceleration: .NAN
+    linear.x.max_deceleration: .NAN
+    linear.x.max_acceleration_reverse: .NAN
+    linear.x.max_deceleration_reverse: .NAN
+    linear.x.max_jerk: .NAN
+    linear.x.min_jerk: .NAN
+
+    angular.z.max_velocity: .NAN
+    angular.z.min_velocity: .NAN
+    angular.z.max_acceleration: .NAN
+    angular.z.max_deceleration: .NAN
+    angular.z.max_acceleration_reverse: .NAN
+    angular.z.max_deceleration_reverse: .NAN
+    angular.z.max_jerk: .NAN
+    angular.z.min_jerk: .NAN
+    # Контроллеры для передних колес:
+    # 1. Поворот элементов (рулевое управление)
+    # front_steering_controller:
+    #   type: position_controllers/JointGroupPositionController
+    #   ros__parameters:
+    #     joints: ['joint_f_r', 'joint_f_l']
+    #     interface_name: 'position'
+        
+
+    # 2. Вращение передних колес (если они приводные)
+    # front_wheels_velocity_controller:
+    #   type: velocity_controllers/JointGroupVelocityController
+    #   ros__parameters:
+    #     joints: ['joint_f_r_w', 'joint_f_l_w']
+    #     interface_name: 'velocity'
