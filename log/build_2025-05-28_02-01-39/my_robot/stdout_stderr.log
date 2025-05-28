@@ -1,0 +1,66 @@
+running egg_info
+creating ../../build/my_robot/my_robot.egg-info
+writing ../../build/my_robot/my_robot.egg-info/PKG-INFO
+writing dependency_links to ../../build/my_robot/my_robot.egg-info/dependency_links.txt
+writing requirements to ../../build/my_robot/my_robot.egg-info/requires.txt
+writing top-level names to ../../build/my_robot/my_robot.egg-info/top_level.txt
+writing manifest file '../../build/my_robot/my_robot.egg-info/SOURCES.txt'
+reading manifest file '../../build/my_robot/my_robot.egg-info/SOURCES.txt'
+writing manifest file '../../build/my_robot/my_robot.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/alexey/ros2_ws/build/my_robot/build
+creating /home/alexey/ros2_ws/build/my_robot/build/lib
+creating /home/alexey/ros2_ws/build/my_robot/build/lib/my_robot
+copying my_robot/state_publisher.py -> /home/alexey/ros2_ws/build/my_robot/build/lib/my_robot
+copying my_robot/__init__.py -> /home/alexey/ros2_ws/build/my_robot/build/lib/my_robot
+running install
+running install_lib
+creating /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot
+copying /home/alexey/ros2_ws/build/my_robot/build/lib/my_robot/state_publisher.py -> /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot
+copying /home/alexey/ros2_ws/build/my_robot/build/lib/my_robot/__init__.py -> /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot
+byte-compiling /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot/state_publisher.py to state_publisher.cpython-312.pyc
+byte-compiling /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/alexey/ros2_ws/install/my_robot/share/ament_index
+creating /home/alexey/ros2_ws/install/my_robot/share/ament_index/resource_index
+creating /home/alexey/ros2_ws/install/my_robot/share/ament_index/resource_index/packages
+copying resource/my_robot -> /home/alexey/ros2_ws/install/my_robot/share/ament_index/resource_index/packages
+copying package.xml -> /home/alexey/ros2_ws/install/my_robot/share/my_robot
+creating /home/alexey/ros2_ws/install/my_robot/share/my_robot/launch
+copying launch/my_robot.launch.py -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/launch
+copying launch/test.launch.py -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/launch
+copying launch/test2.launch.py -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/launch
+copying launch/control.launch.py -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/launch
+creating /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf
+copying urdf/empty.sdf -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf
+copying urdf/fito.urdf -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf
+copying urdf/model.sdf -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf
+copying urdf/robot.urdf -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf
+copying urdf/world.sdf -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf
+copying urdf/run.sdf -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf
+copying urdf/test.urdf -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf
+copying urdf/robot.xacro -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf
+copying urdf/robot2.urdf -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf
+copying urdf/robot_description.urdf -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf
+copying urdf/fito.xacro -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf
+creating /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+copying meshes/link_f_l_w.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+copying meshes/link_chair.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+copying meshes/link_w.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+copying meshes/link_l_w.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+copying meshes/link_r_w.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+copying meshes/bushes.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+copying meshes/base_link.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+copying meshes/link_f_l.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+copying meshes/link_f_r.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+copying meshes/link_f_r_w.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+copying meshes/borozda.STL -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes
+creating /home/alexey/ros2_ws/install/my_robot/share/my_robot/config
+copying config/joint_names_robot.yaml -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/config
+copying config/bridge_config.yaml -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/config
+copying config/controllers.yaml -> /home/alexey/ros2_ws/install/my_robot/share/my_robot/config
+running install_egg_info
+Copying ../../build/my_robot/my_robot.egg-info to /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot-0.0.0-py3.12.egg-info
+running install_scripts
+writing list of installed files to '/home/alexey/ros2_ws/build/my_robot/install.log'

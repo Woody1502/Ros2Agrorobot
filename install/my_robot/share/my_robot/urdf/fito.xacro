@@ -1,0 +1,312 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="my_robot">
+
+  <!-- ========== MATERIALS ========== -->
+  <material name="blue">
+    <color rgba="0.027 0.539 0.209 1"/>
+  </material>
+  <material name="red">
+    <color rgba="0.352 0.070 0.578 1"/>
+  </material>
+  <!-- Добавьте другие материалы по аналогии -->
+
+  <!-- ========== MACROS ========== -->
+  <xacro:macro name="box_inertial" params="mass x y z">
+    <inertial>
+      <mass value="${mass}"/>
+      <inertia ixx="${0.083 * mass * (y*y + z*z)}" ixy="0" ixz="0"
+               iyy="${0.083 * mass * (x*x + z*z)}" iyz="0"
+               izz="${0.083 * mass * (x*x + y*y)}"/>
+    </inertial>
+  </xacro:macro>
+
+  <xacro:macro name="cylinder_inertial" params="mass r h">
+    <inertial>
+      <mass value="${mass}"/>
+      <inertia ixx="${mass*(3*r*r + h*h)/12}" ixy="0" ixz="0"
+               iyy="${mass*(3*r*r + h*h)/12}" iyz="0"
+               izz="${mass*r*r/2}"/>
+    </inertial>
+  </xacro:macro>
+
+  <!-- ========== BASE LINK ========== -->
+  <link name="fito_world"/>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="fito_world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0.033 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="2.11 1.28 0.12"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="2.11 1.28 0.12"/>
+      </geometry>
+    </collision>
+    <xacro:box_inertial mass="400" x="2.11" y="1.28" z="0.12"/>
+  </link>
+
+  <!-- ========== STEERING MECHANISM ========== -->
+  <joint name="base_link_to_wheeling_mech" type="revolute">
+    <parent link="base_link"/>
+    <child link="wheeling_mech"/>
+    <origin xyz="-1.051 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-0.4" upper="0.4" velocity="0.5"/>
+  </joint>
+
+  <link name="wheeling_mech">
+    <visual>
+      <origin xyz="-0.3 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.64 0.1 0.12"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.3 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.64 0.1 0.12"/>
+      </geometry>
+    </collision>
+    <xacro:box_inertial mass="50" x="0.64" y="0.1" z="0.12"/>
+  </link>
+
+  <!-- ========== FRONT WHEELS ASSEMBLY ========== -->
+  <joint name="wheeling_mech_to_front_wheels_base" type="fixed">
+    <parent link="wheeling_mech"/>
+    <child link="front_wheels_base"/>
+    <origin xyz="-0.585 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="front_wheels_base">
+    <visual>
+      <geometry>
+        <box size="0.082 1.28 0.12"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.082 1.28 0.12"/>
+      </geometry>
+    </collision>
+    <xacro:box_inertial mass="50" x="0.082" y="1.28" z="0.12"/>
+  </link>
+
+  <!-- ========== FRONT RIGHT WHEEL ========== -->
+  <joint name="front_wheels_base_to_front_right_base" type="fixed">
+    <parent link="front_wheels_base"/>
+    <child link="front_right_base"/>
+    <origin xyz="0 0.63 -0.36" rpy="0 0 0"/>
+  </joint>
+
+  <link name="front_right_base">
+    <visual>
+      <geometry>
+        <box size="0.175 0.04 0.83"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.175 0.04 0.83"/>
+      </geometry>
+    </collision>
+    <xacro:box_inertial mass="15" x="0.175" y="0.04" z="0.83"/>
+  </link>
+
+  <joint name="front_right_base_to_front_right_wheel" type="continuous">
+    <parent link="front_right_base"/>
+    <child link="front_right_wheel"/>
+    <origin xyz="0 0.09 -0.41" rpy="${pi/2} 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <link name="front_right_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius="0.37" length="0.16"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.37" length="0.16"/>
+      </geometry>
+    </collision>
+    <xacro:cylinder_inertial mass="60" r="0.37" h="0.16"/>
+  </link>
+
+  <!-- ========== FRONT LEFT WHEEL (аналогично правому) ========== -->
+  <!-- Добавьте по аналогии с front_right -->
+
+  <!-- ========== REAR WHEELS ========== -->
+  <!-- Добавьте задние колеса по аналогии с передними -->
+
+  <!-- ========== LOADS ========== -->
+  <joint name="base_link_to_back_load" type="fixed">
+    <parent link="base_link"/>
+    <child link="back_load"/>
+    <origin xyz="0.466 0 0.275" rpy="0 0 0"/>
+  </joint>
+
+  <link name="back_load">
+    <visual>
+      <geometry>
+        <box size="0.5 1 0.5"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.5 1 0.5"/>
+      </geometry>
+    </collision>
+    <xacro:box_inertial mass="50" x="0.5" y="1" z="0.5"/>
+  </link>
+
+  <!-- ========== LIDAR ========== -->
+  <joint name="base_link_to_lidar_base" type="fixed">
+    <parent link="base_link"/>
+    <child link="lidar_base"/>
+    <origin xyz="-0.92 0.002 0.681" rpy="0 0 0"/>
+  </joint>
+
+  <link name="lidar_base">
+    <visual>
+      <geometry>
+        <cylinder radius="0.01" length="1.2"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.01" length="1.2"/>
+      </geometry>
+    </collision>
+    <xacro:cylinder_inertial mass="1" r="0.01" h="1.2"/>
+  </link>
+
+  <joint name="lidar_base_to_lidar" type="fixed">
+    <parent link="lidar_base"/>
+    <child link="lidar"/>
+    <origin xyz="0 0 0.617" rpy="0 0 0"/>
+  </joint>
+
+  <link name="lidar">
+    <visual>
+      <geometry>
+        <sphere radius="0.05"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <sphere radius="0.05"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.4" ixy="0" ixz="0" iyy="0.4" iyz="0" izz="0.4"/>
+    </inertial>
+
+    <!-- <sensor type="lidar" name="lidar">
+      <always_on>true</always_on>
+      <update_rate>5</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>0</min_angle>
+            <max_angle>6.28</max_angle>
+          </horizontal>
+          <range>
+            <min>0.12</min>
+            <max>3.5</max>
+            <resolution>0.015</resolution>
+          </range>
+        </scan>
+        <noise>
+          <type>gaussian</type>
+          <mean>0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+    </sensor> -->
+  </link>
+
+  <!-- ========== ROS2 CONTROL ========== -->
+    <ros2_control name="GazeboSystem" type="system">
+      <hardware>
+        <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+      </hardware>
+
+
+      <joint name="back_right_base_to_back_right_wheel">
+        <command_interface name="velocity">
+          <param name="min">-10</param>
+          <param name="max">10</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+      </joint>
+     
+      <joint name="back_left_base_to_back_left_wheel">
+        <command_interface name="velocity">
+          <param name="min">-10</param>
+          <param name="max">10</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+      </joint>
+
+      <joint name="front_right_base_to_front_right_wheel">
+        <command_interface name="velocity">
+          <param name="min">-10</param>
+          <param name="max">10</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+      </joint>
+     
+      <joint name="front_left_base_to_front_left_wheel">
+        <command_interface name="velocity">
+          <param name="min">-10</param>
+          <param name="max">10</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+      </joint>
+      
+      
+
+      <!-- Steering mechanisms (position control) -->
+      <joint name="base_link_to_wheeling_mech">
+        <command_interface name="position">
+          <param name="min">-0.4</param>
+          <param name="max">0.4</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+      </joint>
+      
+      
+    </ros2_control>
+  
+
+ 
+    <gazebo>
+      <plugin name="gz_ros2_control::GazeboSimROS2ControlPlugin" filename="libgz_ros2_control-system.so">
+        <parameters>$(find my_robot)/config/new_controllers.yaml</parameters>
+      </plugin>
+   
+    </gazebo>
+    
+ 
+    <gazebo reference="base_link">
+      <material>Gazebo/Grey</material>
+    </gazebo>
+</robot>

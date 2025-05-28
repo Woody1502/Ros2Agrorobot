@@ -10,6 +10,7 @@ setup.py
 config/bridge_config.yaml
 config/controllers.yaml
 config/joint_names_robot.yaml
+config/new_controllers.yaml
 launch/control.launch.py
 launch/my_robot.launch.py
 launch/test.launch.py
@@ -32,6 +33,8 @@ test/test_copyright.py
 test/test_flake8.py
 test/test_pep257.py
 urdf/empty.sdf
+urdf/fito.urdf
+urdf/fito.xacro
 urdf/model.sdf
 urdf/robot.urdf
 urdf/robot.xacro

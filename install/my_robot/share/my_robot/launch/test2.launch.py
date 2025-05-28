@@ -11,7 +11,7 @@ import os
 def generate_launch_description():
     # Пути к файлам
     pkg_my_robot = get_package_share_directory('my_robot')
-    xacro_file = PathJoinSubstitution([pkg_my_robot, 'urdf', 'robot.xacro'])
+    xacro_file = PathJoinSubstitution([pkg_my_robot, 'urdf', 'fito.xacro'])
     world_file = PathJoinSubstitution([pkg_my_robot, 'urdf', 'run.sdf'])  # Измените на ваш мир
 
     # Аргументы запуска
@@ -48,7 +48,7 @@ def generate_launch_description():
         ),
         launch_arguments={
             'gz_args': ['-r ' , world_file, ' -v' ' 4 '],
-            'on_exit_shutdiwn': 'true',
+            'on_exit_shutdown': 'true',
         }.items()
     )
 
@@ -72,7 +72,7 @@ def generate_launch_description():
     rear_drive_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["diff_drive_controller", "--param-file",ros2_control_params],
+        arguments=["velocity_controller", "--param-file",ros2_control_params],
     )
     
     # front_stearing_spawner = Node(
@@ -85,6 +85,22 @@ def generate_launch_description():
         executable="spawner",
         arguments=["joint_broad", "--param-file",ros2_control_params],
     )
+
+    steer_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["position_controller", "--param-file",ros2_control_params],
+    )
+    # vel_spawner = Node(
+    #     package="controller_manager",
+    #     executable="spawner",
+    #     arguments=["forward_velocity_controller", "--param-file",ros2_control_params],
+    # )
+    # pos_spawner = Node(
+    #     package="controller_manager",
+    #     executable="spawner",
+    #     arguments=["forward_position_controller", "--param-file",ros2_control_params],
+    # )
     # joint_rear_spawner = Node(
     #     package="controller_manager",
     #     executable="spawner",
@@ -115,11 +131,12 @@ def generate_launch_description():
         # Запуск компонентов
         robot_state_publisher,
         gazebo,
-        
+        steer_spawner,
+        rear_drive_spawner,
         spawn_entity,
         ros_gz_bridge,
         joint_broad_spawner,
-        rear_drive_spawner,
+        #rear_drive_spawner,
         
         #front_stearing_spawner,
       

@@ -1,1 +1,1 @@
-/home/alexey/ros2_ws/build/my_robot/config/joint_names_robot.yaml
+controller_joint_names: ['', 'joint_f_r', 'joint_f_r_w', 'joint_f_l', 'joint_f_l_w', 'joint_l_w', 'joint_r_w', ]

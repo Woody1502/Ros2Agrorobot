@@ -9,6 +9,7 @@
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/launch/test2.launch.py
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/launch/control.launch.py
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/empty.sdf
+/home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/fito.urdf
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/model.sdf
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/robot.urdf
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/world.sdf
@@ -17,6 +18,7 @@
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/robot.xacro
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/robot2.urdf
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/robot_description.urdf
+/home/alexey/ros2_ws/install/my_robot/share/my_robot/urdf/fito.xacro
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes/link_f_l_w.STL
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes/link_chair.STL
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes/link_w.STL
@@ -30,6 +32,7 @@
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/meshes/borozda.STL
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/config/joint_names_robot.yaml
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/config/bridge_config.yaml
+/home/alexey/ros2_ws/install/my_robot/share/my_robot/config/new_controllers.yaml
 /home/alexey/ros2_ws/install/my_robot/share/my_robot/config/controllers.yaml
 /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot-0.0.0-py3.12.egg-info/top_level.txt
 /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot-0.0.0-py3.12.egg-info/zip-safe
