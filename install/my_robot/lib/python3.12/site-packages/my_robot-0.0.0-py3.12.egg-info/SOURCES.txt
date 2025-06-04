@@ -4,12 +4,15 @@ setup.py
 ../../build/my_robot/my_robot.egg-info/PKG-INFO
 ../../build/my_robot/my_robot.egg-info/SOURCES.txt
 ../../build/my_robot/my_robot.egg-info/dependency_links.txt
+../../build/my_robot/my_robot.egg-info/entry_points.txt
 ../../build/my_robot/my_robot.egg-info/requires.txt
 ../../build/my_robot/my_robot.egg-info/top_level.txt
 ../../build/my_robot/my_robot.egg-info/zip-safe
+config/acker_control.yaml
 config/bridge_config.yaml
 config/controllers.yaml
 config/joint_names_robot.yaml
+config/mapper_params_online_async.yaml
 config/new_controllers.yaml
 launch/control.launch.py
 launch/my_robot.launch.py
@@ -27,6 +30,7 @@ meshes/link_l_w.STL
 meshes/link_r_w.STL
 meshes/link_w.STL
 my_robot/__init__.py
+my_robot/joy_control.py
 my_robot/state_publisher.py
 resource/my_robot
 test/test_copyright.py

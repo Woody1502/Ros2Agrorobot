@@ -30,7 +30,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            # 'my_node = my_robot.my_node:main',
+            'joy_control = my_robot.joy_control:main'
         ],
     },
 )

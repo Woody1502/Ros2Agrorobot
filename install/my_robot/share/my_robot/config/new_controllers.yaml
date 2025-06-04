@@ -24,4 +24,5 @@ velocity_controller:
         - front_left_base_to_front_left_wheel
         - back_right_base_to_back_right_wheel
         - back_left_base_to_back_left_wheel
- 
+    odom_frame_id: odom
+    base_frame_id: base_link
