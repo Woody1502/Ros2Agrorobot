@@ -1,6 +1,8 @@
+/home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot/odom.py
 /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot/state_publisher.py
 /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot/__init__.py
 /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot/joy_control.py
+/home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot/__pycache__/odom.cpython-312.pyc
 /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot/__pycache__/state_publisher.cpython-312.pyc
 /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot/__pycache__/__init__.cpython-312.pyc
 /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot/__pycache__/joy_control.cpython-312.pyc
@@ -45,4 +47,4 @@
 /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot-0.0.0-py3.12.egg-info/requires.txt
 /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot-0.0.0-py3.12.egg-info/entry_points.txt
 /home/alexey/ros2_ws/install/my_robot/lib/python3.12/site-packages/my_robot-0.0.0-py3.12.egg-info/SOURCES.txt
-/home/alexey/ros2_ws/install/my_robot/lib/my_robot/joy_control
+/home/alexey/ros2_ws/install/my_robot/lib/my_robot/odom

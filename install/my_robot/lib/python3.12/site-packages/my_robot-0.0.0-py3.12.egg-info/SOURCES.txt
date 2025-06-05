@@ -31,6 +31,7 @@ meshes/link_r_w.STL
 meshes/link_w.STL
 my_robot/__init__.py
 my_robot/joy_control.py
+my_robot/odom.py
 my_robot/state_publisher.py
 resource/my_robot
 test/test_copyright.py

@@ -118,8 +118,8 @@ def generate_launch_description():
     # Ваш узел для управления роботом через джойстик
     joy_control_node = Node(
         package='my_robot',  # Замените на имя вашего пакета
-        executable='joy_control',  # Исполняемый файл вашего узла
-        name='joy_control',
+        executable='odom',  # Исполняемый файл вашего узла
+        name='odom',
         output='screen',
         parameters=[{
             'use_sim_time': use_sim_time,
