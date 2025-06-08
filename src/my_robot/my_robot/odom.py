@@ -79,8 +79,11 @@ class JoyControlNode(Node):
                     turn_radius = self.wheel_base / math.tan(steering_angle)
                     angular_velocity = linear_speed / turn_radius
                     delta_th = angular_velocity * dt
-                    delta_x = turn_radius * (math.sin(self.th + delta_th) - math.sin(self.th))
-                    delta_y = -turn_radius * (math.cos(self.th + delta_th) - math.cos(self.th))
+                    #delta_x = turn_radius * (math.sin(self.th + delta_th) - math.sin(self.th)) 
+                    #delta_y = -turn_radius * (math.cos(self.th + delta_th) - math.cos(self.th))
+                    # Для случая поворота:
+                    delta_x = linear_speed * math.cos(self.th) * dt  # Упрощенный расчет
+                    delta_y = linear_speed * math.sin(self.th) * dt
                 else:  # Движение прямо
                     delta_th = 0.0
                     delta_x = linear_speed * math.cos(self.th) * dt

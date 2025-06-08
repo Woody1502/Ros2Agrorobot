@@ -118,8 +118,19 @@ def generate_launch_description():
     # Ваш узел для управления роботом через джойстик
     joy_control_node = Node(
         package='my_robot',  # Замените на имя вашего пакета
-        executable='odom',  # Исполняемый файл вашего узла
-        name='odom',
+        executable='joy_control',  # Исполняемый файл вашего узла
+        name='joy_control',
+        output='screen',
+        parameters=[{
+            'use_sim_time': use_sim_time,
+            'max_linear_speed': 2.0,  # Максимальная линейная скорость
+            'max_angular_speed': 1.0   # Максимальная угловая скорость
+        }]
+    )
+    odom_node = Node(
+        package='my_robot',  # Замените на имя вашего пакета
+        executable='acker_odom',  # Исполняемый файл вашего узла
+        name='acker_odom',
         output='screen',
         parameters=[{
             'use_sim_time': use_sim_time,
@@ -138,6 +149,14 @@ def generate_launch_description():
             f'config_file:={bridge_params}'
         ]
     )
+
+#     robot_localization_node = Node(
+#     package='robot_localization',
+#     executable='ekf_node',
+#     name='ekf_node',
+#     output='screen',
+#     parameters=[os.path.join(get_package_share_directory('my_robot'), 'config/ekf.yaml'), {'use_sim_time': True}]
+# )
     # Загрузка контроллеров (после спавна робота)
     #load_joint_state_broadcaster = ExecuteProcess(
      #   cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'joint_state_broadcaster'],
@@ -152,7 +171,7 @@ def generate_launch_description():
         # Запуск компонентов
         robot_state_publisher,
         gazebo,
-       
+       #robot_localization_node,
          steer_spawner,
          rear_drive_spawner,
         spawn_entity,
@@ -160,7 +179,8 @@ def generate_launch_description():
          joint_broad_spawner,
         rviz_node,
         joy_node,
-        joy_control_node
+        joy_control_node,
+        odom_node
         #rear_drive_spawner,
         
         #front_stearing_spawner,

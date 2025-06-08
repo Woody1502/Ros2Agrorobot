@@ -35,6 +35,7 @@
       <mass value="400" />
       <inertia ixx="55.1" ixy="0" ixz="0" iyy="148.9" iyz="0" izz="203" />
     </inertial>
+
   </link>
   <joint name="base_link_to_wheeling_mech" type="revolute">
     <parent link="base_link" />
@@ -424,6 +425,15 @@
 
 
       </link>
+      <gazebo reference="base_link">
+    <sensor name="imu_sensor" type="imu">
+    <always_on>1</always_on>
+    <update_rate>1</update_rate>
+    <visualize>true</visualize>
+    <topic>imu</topic>
+</sensor>
+
+  </gazebo>
   <gazebo reference="lidar">
     <sensor name="gpu_lidar" type="gpu_lidar">
       <update_rate>10</update_rate>
