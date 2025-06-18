@@ -157,20 +157,61 @@ def generate_launch_description():
 #     output='screen',
 #     parameters=[os.path.join(get_package_share_directory('my_robot'), 'config/ekf.yaml'), {'use_sim_time': True}]
 # )
-    # Загрузка контроллеров (после спавна робота)
-    #load_joint_state_broadcaster = ExecuteProcess(
-     #   cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'joint_state_broadcaster'],
-     #   output='screen'
-    #)
-    #load_diff_drive_controller = ExecuteProcess(
-    #    cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'diff_drive_controller'],
-    #    output='screen'
-    #
+    qos = LaunchConfiguration('qos')
+    parameters={
+        'frame_id': 'base_link',
+        'odom_frame_id':'odom',
+        'use_sim_time': use_sim_time,
+        'subscribe_depth': True,
+        'subscribe_scan': False,
+        'subscribe_rgbd': False,
+        'qos_image': qos,
+        'qos_imu': qos,
+        
+        # Оптимизация для 2D
+        'Reg/Force3DoF': 'true',
+        'Optimizer/GravitySigma': '0',
+        
+        # Настройки петлевого замыкания
+        'RGBD/LoopClosureReextractFeatures': 'false',
+        'RGBD/LinearUpdate': '0.1',
+        'RGBD/AngularUpdate': '0.2',
+        'Mem/RehearsalSimilarity': '0.65',
+        
+        # Фильтрация данных
+        'RGBD/ProximityBySpace': 'true',
+        'RGBD/AngularUpdate': '0.2',
+        'Grid/RangeMax': '5.0',
+        'Kp/MaxDepth': '10.0',
+        
+        # Производительность
+        'Mem/STMSize': '30',
+        'Mem/UseOdomFeatures': 'false',
+}
+
+    remappings = [
+    ('rgb/image', '/camera/depth/pure_image'),
+    ('rgb/camera_info', '/camera/depth/camera_info'),
+    ('depth/image', '/camera/depth/image_depth'),]
+    rtabmap_slam = Node(
+            package='rtabmap_slam', executable='rtabmap', output='screen',
+            parameters=[parameters],
+            remappings=remappings,
+            arguments=['-d'])
+    rtab_viz=  Node(
+            package='rtabmap_viz', executable='rtabmap_viz', output='screen',
+            parameters=[parameters],
+            remappings=remappings)
+        # Node(
+   
     return LaunchDescription([
-     
+     DeclareLaunchArgument(
+            'qos', default_value='2',
+            description='QoS used for input sensor topics'),
         # Запуск компонентов
         robot_state_publisher,
         gazebo,
+        
        #robot_localization_node,
          steer_spawner,
          rear_drive_spawner,
@@ -180,7 +221,9 @@ def generate_launch_description():
         rviz_node,
         joy_node,
         joy_control_node,
-        odom_node
+        #odom_node,
+        rtabmap_slam,
+        rtab_viz
         #rear_drive_spawner,
         
         #front_stearing_spawner,

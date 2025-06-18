@@ -4,7 +4,7 @@ ekf_node:
         
         two_d_mode: true  # Работаем в 2D плоскости
         publish_acceleration: false
-        publish_tf: true
+        publish_tf: false
         
         # Системы координат
         map_frame: map
@@ -29,16 +29,3 @@ ekf_node:
                       false, false, false]   # Не используем линейные ускорения
 
         # Параметры фильтрации
-        process_noise_covariance: [0.05, 0,    0,    0,    0,    0,
-                                  0,    0.05, 0,    0,    0,    0,
-                                  0,    0,    0.06, 0,    0,    0,
-                                  0,    0,    0,    0.03, 0,    0,
-                                  0,    0,    0,    0,    0.03, 0,
-                                  0,    0,    0,    0,    0,    0.01]
-
-        initial_estimate_covariance: [0.1, 0,    0,    0,    0,    0,
-                                     0,    0.1, 0,    0,    0,    0,
-                                     0,    0,    0.1, 0,    0,    0,
-                                     0,    0,    0,    0.1, 0,    0,
-                                     0,    0,    0,    0,    0.1, 0,
-                                     0,    0,    0,    0,    0,    0.1]

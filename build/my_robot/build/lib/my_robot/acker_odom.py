@@ -70,8 +70,8 @@ class AckermanOdometry(Node):
         
         # Интегрирование положения
         self.theta += angular_velocity * dt
-        self.x += linear_velocity * cos(self.theta) * dt
-        self.y += linear_velocity * sin(self.theta) * dt
+        self.x -= linear_velocity * cos(self.theta) * dt
+        self.y -= linear_velocity * sin(self.theta) * dt
         
         # Нормализация угла
         self.theta = math.atan2(sin(self.theta), cos(self.theta))
