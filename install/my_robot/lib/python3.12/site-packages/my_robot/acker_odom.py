@@ -52,14 +52,14 @@ class AckermanOdometry(Node):
         # Парсим данные из joint_states
         for i, name in enumerate(msg.name):
             if name == "base_link_to_wheeling_mech":
-                self.steering_angle = msg.position[i]
+                self.steering_angle = msg.position[i]/2
             elif name == "back_left_base_to_back_left_wheel":
                 self.left_wheel_velocity = msg.velocity[i] * self.wheel_radius
             elif name == "back_right_base_to_back_right_wheel":
                 self.right_wheel_velocity = msg.velocity[i] * self.wheel_radius
         
         # Рассчитываем среднюю скорость
-        linear_velocity = (self.left_wheel_velocity + self.right_wheel_velocity) / 2.0
+        linear_velocity = (self.left_wheel_velocity + self.right_wheel_velocity) *0.4
         
         # Кинематика Акермана
         if abs(self.steering_angle) > 0.001:  # Если руль повернут

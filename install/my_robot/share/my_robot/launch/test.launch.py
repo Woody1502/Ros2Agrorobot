@@ -65,12 +65,7 @@ def generate_launch_description():
 
     # Контроллеры
     ros2_control_params=os.path.join(get_package_share_directory('my_robot'),'config','new_controllers.yaml') 
-    # acker_spawner=Node(
-    #         package="controller_manager",
-    #         executable="spawner",
-    #         arguments=["ackermann_steering_controller", "--param-file",ros2_control_params],
-    #         output="screen",
-    #     )
+  
     
     rear_drive_spawner = Node(
         package="controller_manager",
@@ -78,11 +73,7 @@ def generate_launch_description():
         arguments=["velocity_controller", "--param-file",ros2_control_params],
     )
     
-    # front_stearing_spawner = Node(
-    #     package="controller_manager",
-    #     executable="spawner",
-    #     arguments=["front_steering_controller", "--param-file",ros2_control_params],
-    # )
+
     joint_broad_spawner = Node(
         package="controller_manager",
         executable="spawner",
@@ -150,13 +141,13 @@ def generate_launch_description():
         ]
     )
 
-#     robot_localization_node = Node(
-#     package='robot_localization',
-#     executable='ekf_node',
-#     name='ekf_node',
-#     output='screen',
-#     parameters=[os.path.join(get_package_share_directory('my_robot'), 'config/ekf.yaml'), {'use_sim_time': True}]
-# )
+    robot_localization_node = Node(
+    package='robot_localization',
+    executable='ekf_node',
+    name='ekf_node',
+    output='screen',
+    parameters=[os.path.join(get_package_share_directory('my_robot'), 'config/ekf.yaml'), {'use_sim_time': True}]
+)
     qos = LaunchConfiguration('qos')
     parameters={
         'frame_id': 'base_link',
@@ -212,7 +203,7 @@ def generate_launch_description():
         robot_state_publisher,
         gazebo,
         
-       #robot_localization_node,
+       robot_localization_node,
          steer_spawner,
          rear_drive_spawner,
         spawn_entity,
@@ -221,24 +212,10 @@ def generate_launch_description():
         rviz_node,
         joy_node,
         joy_control_node,
-        #odom_node,
-        rtabmap_slam,
-        rtab_viz
+        odom_node,
+        #rtabmap_slam,
+        #rtab_viz
         #rear_drive_spawner,
         
-        #front_stearing_spawner,
-      
-        # Загрузка контроллеров после спавна робота
-        # RegisterEventHandler(
-        #     event_handler=OnProcessExit(
-        #         target_action=spawn_entity,
-        #         on_exit=[load_joint_state_broadcaster] # type: ignore
-        #     )
-        # ),
-        # RegisterEventHandler(
-        #     event_handler=OnProcessExit(
-        #         target_action=load_joint_state_broadcaster,
-        #         on_exit=[load_diff_drive_controller] # type: ignore
-        #     )
-        # )
+
     ])

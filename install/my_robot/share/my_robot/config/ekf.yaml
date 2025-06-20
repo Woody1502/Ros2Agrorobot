@@ -16,16 +16,16 @@ ekf_node:
         odom0: /odom
         odom0_config: [true,  true,  false,   # X, Y, Z позиция
                       false, false, false,   # Roll, Pitch, Yaw
-                      false, false, false,   # X, Y, Z velocity
-                      false, false, true,    # Roll, Pitch, Yaw velocity
-                      false, false, false]   # Linear acceleration
+                      true, true, true,   # X, Y, Z velocity
+                      true, true, true,    # Roll, Pitch, Yaw velocity
+                      true, true, true]   # Linear acceleration
         
         # Настройки IMU
         imu0: /imu
-        imu0_config: [false, false, false,   # Не используем позицию IMU
-                      false, false, true,    # Используем только Yaw из ориентации
-                      true,  true,  false,   # Используем линейные скорости X,Y
-                      false, false, true,    # Используем угловую скорость Z
-                      false, false, false]   # Не используем линейные ускорения
+        imu0_config: [true,  true,  false,   # X, Y, Z позиция
+                      false, false, false,   # Roll, Pitch, Yaw
+                      true, true, true,   # X, Y, Z velocity
+                      true, true, true,    # Roll, Pitch, Yaw velocity
+                      true, true, true]   # Не используем линейные ускорения
 
         # Параметры фильтрации
