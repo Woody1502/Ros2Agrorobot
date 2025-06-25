@@ -9,7 +9,7 @@ import cv2
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
-class YoloDetector(Node):
+class DetrDetector(Node):
     def __init__(self):
         super().__init__('rfdetr')
         
@@ -102,7 +102,7 @@ class YoloDetector(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    rfdetr = YoloDetector()
+    rfdetr = DetrDetector()
     rclpy.spin(rfdetr)
     rfdetr.destroy_node()
     rclpy.shutdown()
