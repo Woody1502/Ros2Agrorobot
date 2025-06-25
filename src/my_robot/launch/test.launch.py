@@ -12,7 +12,7 @@ def generate_launch_description():
     # Пути к файлам
     pkg_my_robot = get_package_share_directory('my_robot')
     urdf_file = os.path.join(pkg_my_robot, 'urdf', 'fito.urdf') 
-    world_file = PathJoinSubstitution([pkg_my_robot, 'urdf', 'run.sdf'])  # Измените на ваш мир
+    world_file = PathJoinSubstitution([pkg_my_robot, 'urdf', 'bushes_world.sdf'])  # Измените на ваш мир
 
     # Аргументы запуска
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
@@ -55,8 +55,8 @@ def generate_launch_description():
         arguments=[
             '-name', 'my_robot',
             '-topic', '/robot_description',
-            '-x', '0.0',
-            '-y', '0.0',
+            '-x', '12.0',
+            '-y', '-10.0',
             '-z', '1.5',
             '-allow_renaming', 'true'
         ],
@@ -117,6 +117,13 @@ def generate_launch_description():
             'max_linear_speed': 2.0,  # Максимальная линейная скорость
             'max_angular_speed': 1.0   # Максимальная угловая скорость
         }]
+    )
+    yolo_node = Node(
+        package='my_robot',  # Замените на имя вашего пакета
+        executable='rfdetr',  # Исполняемый файл вашего узла
+        name='rfdetr',
+        output='screen',
+        
     )
     odom_node = Node(
         package='my_robot',  # Замените на имя вашего пакета
@@ -213,6 +220,7 @@ def generate_launch_description():
         joy_node,
         joy_control_node,
         odom_node,
+        yolo_node
         #rtabmap_slam,
         #rtab_viz
         #rear_drive_spawner,

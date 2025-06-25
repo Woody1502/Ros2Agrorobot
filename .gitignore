@@ -1,0 +1,6 @@
+build/
+install/
+log/
+checkpoint_best_total.pth
+venv/
+*.pth 

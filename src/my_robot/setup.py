@@ -32,6 +32,7 @@ setup(
         'console_scripts': [
             'joy_control = my_robot.joy_control:main',
             'acker_odom = my_robot.acker_odom:main',
+            'rfdetr = my_robot.rfdetr:main'
         ],
     },
 )
