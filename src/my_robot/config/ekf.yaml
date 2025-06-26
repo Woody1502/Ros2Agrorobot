@@ -10,7 +10,7 @@ ekf_node:
         map_frame: map
         odom_frame: odom
         base_link_frame: base_link
-        world_frame: odom  # Используем odom как мировую СК
+        world_frame: fito_world  # Используем odom как мировую СК
 
         # Настройки одометрии
         odom0: /odom

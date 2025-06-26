@@ -8,6 +8,8 @@ import supervision as sv
 import cv2
 import numpy as np
 from sklearn.linear_model import LinearRegression
+from std_msgs.msg import Float32 
+
 
 class DetrDetector(Node):
     def __init__(self):
@@ -23,7 +25,8 @@ class DetrDetector(Node):
             text_scale=self.text_scale,
             text_thickness=self.thickness,
             smart_position=True)
-        
+        self.angle_pub = self.create_publisher(Float32, '/steering_angle', 10)
+
         # Подписка на камеру
         self.subscription = self.create_subscription(
             Image,
@@ -49,7 +52,7 @@ class DetrDetector(Node):
             center_y = 1-(((det[1] + det[3]) / 2)/800)
             centers.append((center_x, center_y))
         
-        self.get_logger().info(f'{centers}')
+        angle_msg = Float32()
         
         # Линейная регрессия
         if len(centers) >= 2:  # Нужно хотя бы 2 точки для регрессии
@@ -86,7 +89,61 @@ class DetrDetector(Node):
             angle_text = f"Angle: {angle:.1f}°"
             cv2.putText(cv_image, angle_text, (10, 60), cv2.FONT_HERSHEY_SIMPLEX,
                         0.7, (0, 255, 0), 2)
+            angle_rad = np.arctan(k)  # Получаем угол в радианах
+            cos_angle = np.cos(angle_rad)  # Вычисляем косинус угла
+            if k <0:  # Вычисляем косинус угла
+                angle_msg.data = float(-cos_angle)
+            else:
+                angle_msg.data = float(cos_angle)
+            self.get_logger().info(f'{centers}, {angle_msg}')
+        elif len(centers) == 1:  # Нужно хотя бы 2 точки для регрессии
+            centers.append((0,0))
+            centers_array = np.array(centers)
+            x = centers_array[:, 0].reshape(-1, 1)  # X координаты
+            y = centers_array[:, 1]                 # Y координаты
+            
+            model = LinearRegression()
+            model.fit(x, y)
+            
+            # Коэффициенты линии y = kx + b
+            k = model.coef_[0]
+            b = model.intercept_
+            
+            # Преобразование обратно в пиксельные координаты для отрисовки
+            img_height, img_width = cv_image.shape[:2]
+            
+            # Точки для отрисовки линии (крайние точки изображения)
+            x1_px = 0
+            y1_px = int((1 - (k*(-0.5) + b)) * img_height)
+            x2_px = img_width
+            y2_px = int((1 - (k*0.5 + b)) * img_height)
+            
+            # Рисуем линию
+            cv2.line(cv_image, (x1_px, y1_px), (x2_px, y2_px), (0, 0, 255), 2)
+            
+            # Выводим уравнение линии
+            equation = f"y = {k:.2f}x + {b:.2f}"
+            cv2.putText(cv_image, equation, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 
+                        0.7, (0, 255, 0), 2)
+            
+            # Вычисляем угол поворота (в градусах)
+            angle = np.arctan(k) * 180 / np.pi
+            angle_text = f"Angle: {angle:.1f}°"
+            cv2.putText(cv_image, angle_text, (10, 60), cv2.FONT_HERSHEY_SIMPLEX,
+                        0.7, (0, 255, 0), 2)
+            angle_rad = np.arctan(k)  # Получаем угол в радианах
+            cos_angle = np.cos(angle_rad)
+            if k <0:  # Вычисляем косинус угла
+                angle_msg.data = float(-cos_angle)
+            else:
+                angle_msg.data = float(cos_angle)
+            self.get_logger().info(f'{centers}, {angle_msg}')
+        else:
 
+            angle_msg.data = float(0)
+            self.get_logger().info(f'{centers}, {angle_msg}')
+
+        self.angle_pub.publish(angle_msg)
         # Аннотация детекций
         self.detections_labels = [
             f"куст {confidence:.2f}"

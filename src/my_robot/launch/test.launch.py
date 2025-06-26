@@ -220,9 +220,9 @@ def generate_launch_description():
         joy_node,
         joy_control_node,
         odom_node,
-        yolo_node
-        #rtabmap_slam,
-        #rtab_viz
+        #yolo_node
+        rtabmap_slam,
+        rtab_viz
         #rear_drive_spawner,
         
 
