@@ -149,12 +149,22 @@ def generate_launch_description():
     )
 
     robot_localization_node = Node(
-    package='robot_localization',
-    executable='ekf_node',
-    name='ekf_node',
-    output='screen',
-    parameters=[os.path.join(get_package_share_directory('my_robot'), 'config/ekf.yaml'), {'use_sim_time': True}]
-)
+                package="robot_localization",
+                executable="ekf_node",
+                name="ekf_filter_node_odom",
+                output="screen",
+                parameters=[os.path.join(get_package_share_directory('my_robot'), 'config/ekf.yaml'), {"use_sim_time": True}],
+                remappings=[("odometry/filtered", "odometry/local")],
+            )
+    
+    map_node=Node(
+                package="robot_localization",
+                executable="ekf_node",
+                name="ekf_filter_node_map",
+                output="screen",
+                parameters=[os.path.join(get_package_share_directory('my_robot'), 'config/ekf.yaml'), {"use_sim_time": True}],
+                remappings=[("odometry/filtered", "odometry/global")],
+            )
     qos = LaunchConfiguration('qos')
     parameters={
         'frame_id': 'base_link',
@@ -201,7 +211,22 @@ def generate_launch_description():
             parameters=[parameters],
             remappings=remappings)
         # Node(
-   
+
+    navsat=Node(
+                package="robot_localization",
+                executable="navsat_transform_node",
+                name="navsat_transform",
+                output="screen",
+                parameters=[os.path.join(get_package_share_directory('my_robot'), 'config/ekf.yaml'), {"use_sim_time": True}],
+                remappings=[
+                    ("imu/data", "imu/data"),
+                    ("gps/fix", "gps/fix"),
+                    ("gps/filtered", "gps/filtered"),
+                    ("odometry/gps", "odometry/gps"),
+                    ("odometry/filtered", "odometry/global"),
+                ],
+            )
+       
     return LaunchDescription([
      DeclareLaunchArgument(
             'qos', default_value='2',
@@ -209,7 +234,8 @@ def generate_launch_description():
         # Запуск компонентов
         robot_state_publisher,
         gazebo,
-        
+        navsat,
+        map_node,
        robot_localization_node,
          steer_spawner,
          rear_drive_spawner,
@@ -221,8 +247,8 @@ def generate_launch_description():
         joy_control_node,
         odom_node,
         #yolo_node
-        rtabmap_slam,
-        rtab_viz
+        #rtabmap_slam,
+        #rtab_viz
         #rear_drive_spawner,
         
 

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <sdf xmlns:ros2_control="http://playerstage.sourceforge.net/gazebo/xmlschema/#ros2_control" version="1.10">
-  <world name="fito_world">
+  <world name="base_footprint">
      <scene>
       <ambient>0.95 0.95 0.95 1</ambient>
       <background>0.3 0.3 0.3 1</background>

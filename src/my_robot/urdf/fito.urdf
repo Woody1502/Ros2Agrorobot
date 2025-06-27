@@ -5,9 +5,9 @@
 <material name="blue">
   <color rgba="0.0 0.0 0.8 1.0"/>
 </material>
-  <link name="fito_world"></link>
+  <link name="base_footprint"></link>
   <joint name="base_joint" type="fixed">
-    <parent link="fito_world" />
+    <parent link="base_footprint" />
     <child link="base_link" />
     <origin xyz="0 0 0" rpy="0 0 0" />
   </joint>

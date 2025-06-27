@@ -10,7 +10,7 @@
   <depend>rclpy</depend>
   <depend>navigation2</depend>
 <depend>tf2_ros</depend>
-<depend>robot_localization</depend>
+
   <depend>mapviz</depend>
   <depend>mapviz_plugins</depend>
   <depend>tile_map</depend>
