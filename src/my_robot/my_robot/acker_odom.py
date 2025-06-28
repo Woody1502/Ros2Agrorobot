@@ -59,7 +59,7 @@ class AckermanOdometry(Node):
                 self.right_wheel_velocity = msg.velocity[i] * self.wheel_radius
         
         # Рассчитываем среднюю скорость
-        linear_velocity = (self.left_wheel_velocity + self.right_wheel_velocity) *0.4
+        linear_velocity = (self.left_wheel_velocity + self.right_wheel_velocity) *0.5
         
         # Кинематика Акермана
         if abs(self.steering_angle) > 0.001:  # Если руль повернут
@@ -69,10 +69,10 @@ class AckermanOdometry(Node):
             angular_velocity = 0.0
         
         # Интегрирование положения
-        self.theta += angular_velocity * dt
+        self.theta -= angular_velocity * dt
         self.x -= linear_velocity * cos(self.theta) * dt
         self.y -= linear_velocity * sin(self.theta) * dt
-        
+
         # Нормализация угла
         self.theta = math.atan2(sin(self.theta), cos(self.theta))
         
@@ -84,7 +84,7 @@ class AckermanOdometry(Node):
         odom_msg = Odometry()
         odom_msg.header.stamp = current_time.to_msg()
         odom_msg.header.frame_id = 'odom'
-        odom_msg.child_frame_id = 'base_link'
+        odom_msg.child_frame_id = 'base_footprint'
         
         # Заполняем pose
         odom_msg.pose.pose = Pose()
@@ -111,12 +111,12 @@ class AckermanOdometry(Node):
         transform = TransformStamped()
         transform.header.stamp = current_time.to_msg()
         transform.header.frame_id = 'odom'
-        transform.child_frame_id = 'base_link'
+        transform.child_frame_id = 'base_footprint'
         transform.transform.translation.x = self.x
         transform.transform.translation.y = self.y
         transform.transform.translation.z = 0.0
         transform.transform.rotation = q
-        self.tf_broadcaster.sendTransform(transform)
+        #self.tf_broadcaster.sendTransform(transform)
 
 def main(args=None):
     rclpy.init(args=args)

@@ -2,6 +2,11 @@
 
 ekf_filter_node_odom:
   ros__parameters:
+    initial_state: [0.0, 0.0, 0.0,   # x, y, z
+                    0.0, 0.0, 0.0,   # roll, pitch, yaw
+                    0.0, 0.0, 0.0,   # vx, vy, vz
+                    0.0, 0.0, 0.0,   # vroll, vpitch, vyaw
+                    0.0, 0.0, 0.0] 
     frequency: 30.0
     two_d_mode: true # Recommended to use 2d mode for nav2 in mostly planar environments
     print_diagnostics: true

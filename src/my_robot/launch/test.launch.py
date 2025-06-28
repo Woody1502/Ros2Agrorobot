@@ -55,9 +55,10 @@ def generate_launch_description():
         arguments=[
             '-name', 'my_robot',
             '-topic', '/robot_description',
-            '-x', '12.0',
-            '-y', '-10.0',
+            '-x', '-12.0',
+            '-y', '10.0',
             '-z', '1.5',
+            
             '-allow_renaming', 'true'
         ],
         output='screen'
