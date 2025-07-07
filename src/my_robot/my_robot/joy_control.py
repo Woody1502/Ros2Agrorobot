@@ -68,7 +68,7 @@ class JoyControlNode(Node):
             # Здесь нужно преобразовать angular_speed в угол поворота механизма
             # Это зависит от вашей конкретной реализации
             position_command.data = [angular_speed]
-            self.position_pub.publish(position_command)
+            #self.position_pub.publish(position_command)
             
         except Exception as e:
             self.get_logger().error(f"Error in joy_callback: {str(e)}")

@@ -1,167 +1,139 @@
-#!src/my_robot/venv/bin/python3
+#!/usr/bin/env python3
+
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
-from rfdetr import RFDETRBase
-import supervision as sv
 import cv2
 import numpy as np
-from sklearn.linear_model import LinearRegression
-from std_msgs.msg import Float32 
+from sklearn import linear_model
+from typing import Tuple, List
 
-
-class DetrDetector(Node):
+class GreenLineDetector(Node):
     def __init__(self):
-        super().__init__('rfdetr')
+        super().__init__('green_line_detector')
         
-        # Загрузка модели YOLO (YOLOv8n)
-        self.model = RFDETRBase(pretrain_weights='checkpoint_best_total.pth')
-        self.text_scale = sv.calculate_optimal_text_scale(resolution_wh=(800,800))
-        self.thickness = sv.calculate_optimal_line_thickness(resolution_wh=(800,800))
-        self.bbox_annotator = sv.BoxAnnotator(thickness=self.thickness)
-        self.label_annotator = sv.LabelAnnotator(
-            text_color=sv.Color.BLACK,
-            text_scale=self.text_scale,
-            text_thickness=self.thickness,
-            smart_position=True)
-        self.angle_pub = self.create_publisher(Float32, '/steering_angle', 10)
-
-        # Подписка на камеру
+        # Initialize CV bridge
+        self.bridge = CvBridge()
+        
+        # Subscriber for the input image
         self.subscription = self.create_subscription(
             Image,
             '/camera/depth/pure_image',
             self.image_callback,
             10)
         
-        # Публикация результатов
-        self.detection_pub = self.create_publisher(Image, '/camera/depth/detections', 10)
-        self.bridge = CvBridge()
+        # Publisher for the output image with lines
+        self.publisher = self.create_publisher(
+            Image,
+            '/camera/depth/lines',
+            10)
+        
+        self.get_logger().info('Green Line Detector node has been initialized')
 
     def image_callback(self, msg):
-        # Конвертация ROS Image -> OpenCV
-        cv_image = self.bridge.imgmsg_to_cv2(msg, "bgr8")
-        
-        # Детекция YOLO
-        results = self.model.predict(cv_image, threshold=0.5)
-        centers = []
-        
-        for det in results.xyxy.tolist():
-            # Центр объекта (нормализованные координаты)
-            center_x = (((det[0] + det[2]) / 2)/800)-0.5
-            center_y = 1-(((det[1] + det[3]) / 2)/800)
-            centers.append((center_x, center_y))
-        
-        angle_msg = Float32()
-        
-        # Линейная регрессия
-        if len(centers) >= 2:  # Нужно хотя бы 2 точки для регрессии
-            centers_array = np.array(centers)
-            x = centers_array[:, 0].reshape(-1, 1)  # X координаты
-            y = centers_array[:, 1]                 # Y координаты
+        try:
+            # Convert ROS image message to OpenCV image
+            cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
             
-            model = LinearRegression()
-            model.fit(x, y)
+            # Detect green pixels
+            green_pixels = self.detect_green_pixels(cv_image)
             
-            # Коэффициенты линии y = kx + b
-            k = model.coef_[0]
-            b = model.intercept_
+            if green_pixels is None or len(green_pixels) == 0:
+                self.get_logger().info('No green pixels detected')
+                return
             
-            # Преобразование обратно в пиксельные координаты для отрисовки
-            img_height, img_width = cv_image.shape[:2]
+            # Split green pixels into left and right groups relative to center
+            height, width = cv_image.shape[:2]
+            center_x = width // 2
+            center_y = height * 0.75
+            left_pixels = [p for p in green_pixels if (p[0] < center_x and p[1] < center_y) ]
+            right_pixels = [p for p in green_pixels if (p[0] >= center_x and p[1] < center_y)]
             
-            # Точки для отрисовки линии (крайние точки изображения)
-            x1_px = 0
-            y1_px = int((1 - (k*(-0.5) + b)) * img_height)
-            x2_px = img_width
-            y2_px = int((1 - (k*0.5 + b)) * img_height)
+            # Perform RANSAC regression on both groups
+            lines = []
+            if len(left_pixels) > 1:
+                left_line = self.ransac_line_fit(left_pixels)
+                lines.append(('left', left_line))
             
-            # Рисуем линию
-            cv2.line(cv_image, (x1_px, y1_px), (x2_px, y2_px), (0, 0, 255), 2)
+            if len(right_pixels) > 1:
+                right_line = self.ransac_line_fit(right_pixels)
+                lines.append(('right', right_line))
             
-            # Выводим уравнение линии
-            equation = f"y = {k:.2f}x + {b:.2f}"
-            cv2.putText(cv_image, equation, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 
-                        0.7, (0, 255, 0), 2)
+            # Draw the detected lines on the original image
+            result_image = self.draw_lines(cv_image, lines, center_x)
             
-            # Вычисляем угол поворота (в градусах)
-            angle = np.arctan(k) * 180 / np.pi
-            angle_text = f"Angle: {angle:.1f}°"
-            cv2.putText(cv_image, angle_text, (10, 60), cv2.FONT_HERSHEY_SIMPLEX,
-                        0.7, (0, 255, 0), 2)
-            angle_rad = np.arctan(k)  # Получаем угол в радианах
-            cos_angle = np.cos(angle_rad)  # Вычисляем косинус угла
-            if k <0:  # Вычисляем косинус угла
-                angle_msg.data = float(-cos_angle)
-            else:
-                angle_msg.data = float(cos_angle)
-            self.get_logger().info(f'{centers}, {angle_msg}')
-        elif len(centers) == 1:  # Нужно хотя бы 2 точки для регрессии
-            centers.append((0,0))
-            centers_array = np.array(centers)
-            x = centers_array[:, 0].reshape(-1, 1)  # X координаты
-            y = centers_array[:, 1]                 # Y координаты
+            # Convert back to ROS image message and publish
+            output_msg = self.bridge.cv2_to_imgmsg(result_image, encoding='bgr8')
+            self.publisher.publish(output_msg)
             
-            model = LinearRegression()
-            model.fit(x, y)
-            
-            # Коэффициенты линии y = kx + b
-            k = model.coef_[0]
-            b = model.intercept_
-            
-            # Преобразование обратно в пиксельные координаты для отрисовки
-            img_height, img_width = cv_image.shape[:2]
-            
-            # Точки для отрисовки линии (крайние точки изображения)
-            x1_px = 0
-            y1_px = int((1 - (k*(-0.5) + b)) * img_height)
-            x2_px = img_width
-            y2_px = int((1 - (k*0.5 + b)) * img_height)
-            
-            # Рисуем линию
-            cv2.line(cv_image, (x1_px, y1_px), (x2_px, y2_px), (0, 0, 255), 2)
-            
-            # Выводим уравнение линии
-            equation = f"y = {k:.2f}x + {b:.2f}"
-            cv2.putText(cv_image, equation, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 
-                        0.7, (0, 255, 0), 2)
-            
-            # Вычисляем угол поворота (в градусах)
-            angle = np.arctan(k) * 180 / np.pi
-            angle_text = f"Angle: {angle:.1f}°"
-            cv2.putText(cv_image, angle_text, (10, 60), cv2.FONT_HERSHEY_SIMPLEX,
-                        0.7, (0, 255, 0), 2)
-            angle_rad = np.arctan(k)  # Получаем угол в радианах
-            cos_angle = np.cos(angle_rad)
-            if k <0:  # Вычисляем косинус угла
-                angle_msg.data = float(-cos_angle)
-            else:
-                angle_msg.data = float(cos_angle)
-            self.get_logger().info(f'{centers}, {angle_msg}')
-        else:
+        except Exception as e:
+            self.get_logger().error(f'Error processing image: {str(e)}')
 
-            angle_msg.data = float(0)
-            self.get_logger().info(f'{centers}, {angle_msg}')
-
-        self.angle_pub.publish(angle_msg)
-        # Аннотация детекций
-        self.detections_labels = [
-            f"куст {confidence:.2f}"
-            for class_id, confidence
-            in zip(results.class_id, results.confidence)
-        ]
-        detections_image = self.bbox_annotator.annotate(cv_image, results)
-        detections_image = self.label_annotator.annotate(detections_image, results, self.detections_labels)
+    def detect_green_pixels(self, image: np.ndarray) -> List[Tuple[int, int]]:
+        """Detect green pixels in the image and return their coordinates."""
+        # Convert to HSV color space for better color segmentation
+        hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
         
-        # Публикация обработанного изображения
-        detection_msg = self.bridge.cv2_to_imgmsg(detections_image, "bgr8")
-        self.detection_pub.publish(detection_msg)
+        # Define range for green color in HSV
+        lower_green = np.array([35, 50, 50])
+        upper_green = np.array([85, 255, 255])
+        
+        # Threshold the HSV image to get only green colors
+        mask = cv2.inRange(hsv, lower_green, upper_green)
+        
+        # Find coordinates of all non-zero pixels (green pixels)
+        y_coords, x_coords = np.where(mask > 0)
+        green_pixels = list(zip(x_coords, y_coords))
+        
+        return green_pixels
+
+    def ransac_line_fit(self, pixels: List[Tuple[int, int]]) -> Tuple[float, float]:
+        """Fit a line to the pixels using RANSAC algorithm."""
+        # Convert to numpy array
+        X = np.array([p[0] for p in pixels]).reshape(-1, 1)
+        y = np.array([p[1] for p in pixels])
+        
+        # Robustly fit linear model with RANSAC algorithm
+        ransac = linear_model.RANSACRegressor()
+        ransac.fit(X, y)
+        
+        # Get line parameters (slope and intercept)
+        slope = ransac.estimator_.coef_[0]
+        intercept = ransac.estimator_.intercept_
+        
+        return (slope, intercept)
+
+    def draw_lines(self, image: np.ndarray, lines: List[Tuple[str, Tuple[float, float]]], center_x: int) -> np.ndarray:
+        """Draw the detected lines on the image."""
+        result = image.copy()
+        height, width = image.shape[:2]
+        
+        for side, (slope, intercept) in lines:
+            # Choose color based on side
+            color = (0, 0, 255) if side == 'left' else (255, 0, 0)  # Red for left, Blue for right
+            
+            # Calculate two points for the line
+            if side == 'left':
+                x1 = 0
+                x2 = center_x
+            else:
+                x1 = center_x
+                x2 = width
+            
+            y1 = int(slope * x1 + intercept)
+            y2 = int(slope * x2 + intercept)
+            
+            # Draw the line
+            cv2.line(result, (x1, y1), (x2, y2), color, 2)
+        
+        return result
 
 def main(args=None):
     rclpy.init(args=args)
-    rfdetr = DetrDetector()
-    rclpy.spin(rfdetr)
-    rfdetr.destroy_node()
+    node = GreenLineDetector()
+    rclpy.spin(node)
+    node.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':

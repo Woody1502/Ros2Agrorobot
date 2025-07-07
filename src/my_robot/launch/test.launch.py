@@ -12,7 +12,7 @@ def generate_launch_description():
     # Пути к файлам
     pkg_my_robot = get_package_share_directory('my_robot')
     urdf_file = os.path.join(pkg_my_robot, 'urdf', 'fito.urdf') 
-    world_file = PathJoinSubstitution([pkg_my_robot, 'urdf', 'bushes_world.sdf'])  # Измените на ваш мир
+    world_file = PathJoinSubstitution([pkg_my_robot, 'urdf', 'curved_bushes_world.sdf'])  # Измените на ваш мир
 
     # Аргументы запуска
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
@@ -56,7 +56,7 @@ def generate_launch_description():
             '-name', 'my_robot',
             '-topic', '/robot_description',
             '-x', '-12.0',
-            '-y', '10.0',
+            '-y', '0.5',
             '-z', '1.5',
             
             '-allow_renaming', 'true'

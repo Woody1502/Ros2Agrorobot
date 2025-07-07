@@ -9,7 +9,7 @@
   <joint name="base_joint" type="fixed">
     <parent link="base_footprint" />
     <child link="base_link" />
-    <origin xyz="0 0 0.74" rpy="0 0 3.14" />
+    <origin xyz="0 0 0.74" rpy="0 0 3.14159265358979323846159265358979323846" />
   </joint>
 <!-- <link name="base_footprint"></link>
 
@@ -50,9 +50,9 @@
   </link>
 
   <joint name="front_wheels_base_to_depth_camera" type="fixed">
-  <parent link="front_wheels_base" />
+  <parent link="base_link" />
   <child link="depth_camera_link" />
-  <origin xyz="-0.06 0 0" rpy="1.0 3.14 -1.57" />  <!-- Adjust position as needed -->
+  <origin xyz="-2.3 0 1" rpy="0 0 0" />  <!-- Adjust position as needed -->
 </joint>
 
 <link name="depth_camera_link">
@@ -80,19 +80,19 @@
 <!-- Gazebo Depth Camera Plugin -->
 <gazebo reference="depth_camera_link">
   <sensor name="rs_front" type="rgbd_camera">
-        <pose>0.15 0 0.4 0 -1.57 1.57</pose>
+        <pose>0 0 0 0 1.35 3.14159265358979323846159265358979323846</pose>
         <always_on>1</always_on>
         <update_rate>10</update_rate>
         <camera>
           <horizontal_fov>1.50098</horizontal_fov>
-          <lens>
+          <!-- <lens>
             <intrinsics>
-              <!-- fx = fy = width / ( 2 * tan (hfov / 2 ) ) -->
+             
               <fx>343.159</fx>
               <fy>343.159</fy>
-              <!-- cx = ( width - 1 ) / 2 -->
+             
               <cx>319.5</cx>
-              <!-- cy = ( height - 1 ) / 2 -->
+              
               <cy>179.5</cy>
               <s>0</s>
             </intrinsics>
@@ -104,10 +104,10 @@
             <p1>0.0</p1>
             <p2>0.0</p2>
             <center>0.5 0.5</center>
-          </distortion>
+          </distortion> -->
           <image>
-            <width>800</width>
-            <height>800</height>
+            <width>1280</width>
+            <height>720</height>
             <format>B8G8R8</format>
           </image>
           <clip>
@@ -136,7 +136,7 @@
     <child link="wheeling_mech" />
     <origin xyz="-1.051211695797214 0 0" rpy="0 0 0" />
     <axis xyz="0 0 1"/>
-    <limit effort="3000.0" lower="-0.4" upper="0.4" velocity="0.5"/>  
+    <limit effort="3000.0" lower="-0.3" upper="0.3" velocity="1"/>  
     <dynamics damping="0.1" friction="0.5"/>
   </joint>
   <link name="wheeling_mech">
@@ -566,8 +566,8 @@
             <samples>720</samples>
             <!--(max_angle-min_angle)/samples * resolution -->
             <resolution>1</resolution>
-            <min_angle>-3.14156</min_angle>
-            <max_angle>3.14156</max_angle>
+            <min_angle>-3.14159265358979323846156</min_angle>
+            <max_angle>3.14159265358979323846156</max_angle>
           </horizontal>
           <!-- Dirty hack for fake lidar detections with ogre 1 rendering in VM -->
           <!-- <vertical>

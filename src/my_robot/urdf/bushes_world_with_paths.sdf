@@ -1,0 +1,4676 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<sdf xmlns:ros2_control="http://playerstage.sourceforge.net/gazebo/xmlschema/#ros2_control" version="1.10">
+  <world name="fito_world">
+    <physics name="1ms" type="ode">
+      <max_step_size>0.0050000000000000001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors" render_engine="ogre2"/>
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
+    <atmosphere type="adiabatic"/>
+    <scene>
+      <ambient>0.400000006 0.400000006 0.400000006 1</ambient>
+      <background>0.699999988 0.699999988 0.699999988 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name="bush_0_0">
+      <pose>-6.698521212246555 -9.927096023691366 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_0_1">
+      <pose>-6.185859962392059 -10.06583174968026 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_0_2">
+      <pose>-5.980463018778849 -10.08999818872451 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_0_3">
+      <pose>-4.872012502434535 -10.001145790057691 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_0_4">
+      <pose>-4.8102756768306385 -9.9100036528063 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_0_5">
+      <pose>-4.037784105228785 -9.907490716374742 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_0_6">
+      <pose>-3.7692734807760586 -10.042492913964606 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_0_7">
+      <pose>-3.1254824599202733 -9.910432158003925 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_0_8">
+      <pose>-2.791747065132178 -9.973303566333609 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_0_9">
+      <pose>-2.424673120275955 -10.014676087214436 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_0_10">
+      <pose>1.473284308085018 -9.92803715567591 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_0_11">
+      <pose>2.253550934522407 -9.914267197729345 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_0_12">
+      <pose>2.6251454521543853 -9.968817398186012 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_0_13">
+      <pose>3.04482862352882 -9.9944081581795 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_0_14">
+      <pose>3.923810698797044 -9.905826420500759 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_0_15">
+      <pose>4.170519656227535 -9.992356819744025 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_0_16">
+      <pose>4.980588302632482 -10.046588021377238 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_0_17">
+      <pose>5.088812515742771 -9.977992013812187 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_0_18">
+      <pose>5.75474069024857 -9.967412263400647 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_0_19">
+      <pose>6.1337760388807405 -9.962262475971963 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_0">
+      <pose>-6.60237419925216 -8.09892845162501 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_1">
+      <pose>-5.978951902248674 -7.9296996698174205 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_2">
+      <pose>-5.825337552047414 -8.074059267866653 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_3">
+      <pose>-5.176866908709939 -7.93321031415525 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_4">
+      <pose>-4.739454779275322 -7.968908604127924 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_5">
+      <pose>-4.38802637043018 -7.915025281175798 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_6">
+      <pose>-4.140785861954455 -8.065115718064055 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_7">
+      <pose>-3.457953550950955 -7.932014952188754 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_8">
+      <pose>-2.767923298181138 -8.043776476599048 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_9">
+      <pose>-2.2900370336201314 -7.9807975360502725 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_10">
+      <pose>-1.8459982085581212 -8.019398850131763 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_11">
+      <pose>2.4939718024268913 -7.970753858387615 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_12">
+      <pose>2.99218382325936 -8.067569647634551 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_13">
+      <pose>3.1923626768221154 -8.005090701796565 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_14">
+      <pose>3.8851658888111213 -7.9575936950543 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_15">
+      <pose>4.253708141650032 -7.961346833046238 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_16">
+      <pose>4.575417650731473 -8.04455540495346 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_17">
+      <pose>5.140620176624065 -7.974354435668999 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_18">
+      <pose>5.911247515670003 -8.027050068583456 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_1_19">
+      <pose>6.002045423931955 -7.9500188812737305 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_0">
+      <pose>-6.618098256111091 -6.013507026047053 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_1">
+      <pose>-6.350735546927742 -5.929001432881369 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_2">
+      <pose>-5.50330609455847 -6.049292878803408 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_3">
+      <pose>-5.4259157692980375 -5.932384946172308 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_4">
+      <pose>-4.955328932759393 -6.0170191796446195 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_5">
+      <pose>-4.542799717454357 -5.93709662873591 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_6">
+      <pose>-3.723696274318023 -5.920774249059043 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_7">
+      <pose>-3.5298482590942806 -6.0899067377693195 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_8">
+      <pose>-2.7630928857862784 -6.062497926988238 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_9">
+      <pose>-2.0661603719863137 -6.056868520143559 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_10">
+      <pose>-1.6551768703322176 -6.019193406346272 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_11">
+      <pose>-1.2950186758254392 -6.042565699078391 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_12">
+      <pose>2.57037160578728 -6.049660597725785 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_13">
+      <pose>3.4795139108803963 -5.970057809424808 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_14">
+      <pose>3.761565839384336 -6.072984446361765 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_15">
+      <pose>4.490942238953114 -5.972132897520544 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_16">
+      <pose>4.521542386416604 -5.9714266982075745 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_17">
+      <pose>5.406983132858703 -5.945996907162273 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_18">
+      <pose>5.636736887201725 -5.980031160847866 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_2_19">
+      <pose>6.104182178655094 -6.0033475656954955 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_0">
+      <pose>-6.69316005866103 -4.0788123108132766 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_1">
+      <pose>-6.361585186068657 -4.013186897604622 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_2">
+      <pose>-5.951898005697924 -3.966692872183765 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_3">
+      <pose>-5.540585101125713 -3.9119665551428784 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_4">
+      <pose>-4.881268340141604 -4.053933283418249 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_5">
+      <pose>-3.9128917318487684 -3.901814160321965 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_6">
+      <pose>-3.654225266024661 -3.947750180120444 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_7">
+      <pose>-3.2862806979967356 -4.07293389136279 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_8">
+      <pose>-2.610680579955557 -4.096732172201068 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_9">
+      <pose>-2.436964416939174 -3.9191549998799076 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_10">
+      <pose>-1.9205113005797687 -3.9848668040974333 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_11">
+      <pose>-0.9715954428724484 -3.987863726691124 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_12">
+      <pose>-1.1446608518964416 -3.9370885415760193 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_13">
+      <pose>3.608119490467191 -4.063412320998721 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_14">
+      <pose>3.727982983968183 -4.049546519376062 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_15">
+      <pose>4.53186222821582 -3.966442957781641 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_16">
+      <pose>4.740099174643356 -4.001446903787826 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_17">
+      <pose>5.324751529353734 -4.0802239447453745 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_18">
+      <pose>5.709015490536232 -4.093172860216012 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_3_19">
+      <pose>6.198873539166847 -4.075077490913144 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_0">
+      <pose>-6.755222229618262 -2.0470814610572696 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_1">
+      <pose>-6.228780886507113 -2.0980661764513813 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_2">
+      <pose>-5.41061825504752 -2.0622166516104015 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_3">
+      <pose>-5.399300984545867 -1.9179710750227836 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_4">
+      <pose>-4.811101049015677 -1.928104330666111 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_5">
+      <pose>-4.023204301853875 -1.9664076528585606 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_6">
+      <pose>-3.5443064772653123 -1.9115878572992737 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_7">
+      <pose>-3.2600962017494832 -1.9483740137194734 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_8">
+      <pose>-3.108807124040216 -1.9042420431445009 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_9">
+      <pose>-2.4451407531792566 -1.9375861530354206 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_10">
+      <pose>-1.7243344190324583 -1.968125222966512 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_11">
+      <pose>-1.0069028373544375 -1.957124873033072 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_12">
+      <pose>-1.048930442808668 -1.9487959099859857 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_13">
+      <pose>3.236584244813598 -1.979675415873574 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_14">
+      <pose>3.7177424029013495 -1.9490063676402163 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_15">
+      <pose>4.31954552052765 -1.9655849549373778 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_16">
+      <pose>4.97234156301481 -1.9860566475915324 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_17">
+      <pose>4.96959203513107 -2.0829580763143047 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_18">
+      <pose>5.934715521118456 -2.031868992328377 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_4_19">
+      <pose>6.406587945535249 -1.981828575326788 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_0">
+      <pose>-6.729592115590198 -0.06683373389433196 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_1">
+      <pose>-6.1932020679116215 0.04674504746596206 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_2">
+      <pose>-5.774405039417022 0.02794158043210765 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_3">
+      <pose>-5.006886446022772 -0.06439975944090581 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_4">
+      <pose>-4.585319716509699 0.029845169956534134 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_5">
+      <pose>-4.3465106015340575 0.05269323427501618 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_6">
+      <pose>-3.5555949170427295 0.021810426582256445 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_7">
+      <pose>-3.153458339355905 -0.03188863877482276 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_8">
+      <pose>-3.0365623721666646 -0.05584923995350961 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_9">
+      <pose>-2.240648888735975 0.007927492948377954 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_10">
+      <pose>-1.7412195715535526 -0.04299277643742874 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_11">
+      <pose>-1.470404336721182 -0.0020486308421120147 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_12">
+      <pose>-0.8998067220265427 0.032926992655992804 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_13">
+      <pose>3.200495135161622 0.04229159052579565 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_14">
+      <pose>3.7708659025601396 -0.07822918532684586 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_15">
+      <pose>4.442890371345284 -0.04558841116450814 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_16">
+      <pose>5.044776822795244 0.07452304625868708 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_17">
+      <pose>5.192616528862962 0.07060413861042578 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_18">
+      <pose>6.102216858112989 -0.04294079484750255 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_5_19">
+      <pose>6.143526437145641 -0.026802003887180945 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_0">
+      <pose>-6.684531213413781 1.9699684579129215 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_1">
+      <pose>-6.429215354574011 1.9233285629108035 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_2">
+      <pose>-5.7370488753953195 2.0813624341461425 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_3">
+      <pose>-5.100956123211108 2.019833896950912 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_4">
+      <pose>-4.728539853841578 1.9055560885339986 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_5">
+      <pose>-4.241196470351188 1.98552861009735 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_6">
+      <pose>-4.123242600776239 2.094584935132008 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_7">
+      <pose>-3.0463143330152307 1.980094976488493 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_8">
+      <pose>-2.7119010213472006 1.9011946626392409 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_9">
+      <pose>-2.1741237919431535 2.03322771884057 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_10">
+      <pose>-1.737023058281687 1.9325665750819456 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_11">
+      <pose>-1.086032321305482 2.033483455656493 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_12">
+      <pose>-0.939921469118448 1.9832145985237104 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_13">
+      <pose>3.3582612091271624 2.0673670674618125 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_14">
+      <pose>3.72795813471303 1.948407751017088 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_15">
+      <pose>4.497407579943756 2.0182991815099665 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_16">
+      <pose>4.937878198769456 1.9401586765560046 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_17">
+      <pose>5.4111875003730034 1.9744245828401843 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_18">
+      <pose>5.868448393749425 1.9118296677320723 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_6_19">
+      <pose>6.299906330570857 1.9410560910706058 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_0">
+      <pose>-6.469759664003544 4.013052381779792 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_1">
+      <pose>-6.229281105283766 4.057908128400499 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_2">
+      <pose>-5.761267146638142 3.992338081235307 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_3">
+      <pose>-5.276940703120279 4.033843544746432 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_4">
+      <pose>-4.659458696719679 4.022814575309446 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_5">
+      <pose>-4.401965933506547 3.96656733860911 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_6">
+      <pose>-3.9482661974610154 3.969032102026244 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_7">
+      <pose>-3.3090738083963678 3.9711782880693205 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_8">
+      <pose>-2.855346371751018 4.007975279889202 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_9">
+      <pose>-2.3106206418208104 4.060608924960124 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_10">
+      <pose>-1.8802319052980383 4.043571329023642 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_11">
+      <pose>-1.5081854188699422 4.065600240953158 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_12">
+      <pose>-0.6738093407164714 3.932391376679135 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_13">
+      <pose>3.4734594334514086 4.0314205445019615 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_14">
+      <pose>3.8886542242454354 4.094664417453719 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_15">
+      <pose>4.230422050840128 3.9489533718101235 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_16">
+      <pose>4.812462082892882 4.014496247411688 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_17">
+      <pose>5.373096871690126 4.050710916366684 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_18">
+      <pose>5.709968712233538 4.006046892046129 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_7_19">
+      <pose>6.306056642670088 3.98093234008616 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_0">
+      <pose>-6.782886274525506 6.093188968363074 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_1">
+      <pose>-6.220620921438037 5.956127140188773 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_2">
+      <pose>-5.811938206096456 5.901440560009497 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_3">
+      <pose>-5.209545687617066 6.020631283407132 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_4">
+      <pose>-4.927925285192932 6.094832641494155 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_5">
+      <pose>-4.06854957479541 6.012783691881278 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_6">
+      <pose>-4.072558630683612 6.005367403343422 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_7">
+      <pose>-3.4286654485643084 6.050215805237725 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_8">
+      <pose>-3.102595706350646 5.902874294891444 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_9">
+      <pose>-2.2379888327996915 5.967641848826018 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_10">
+      <pose>-1.9403083703888433 6.098473875251896 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_11">
+      <pose>-1.0774022349868315 5.950615205454827 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_12">
+      <pose>-1.0020427005293635 5.959369467195326 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_13">
+      <pose>3.2263027503671484 5.928230530154612 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_14">
+      <pose>3.889918316328914 5.962592879530175 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_15">
+      <pose>4.2536189439089584 5.909040699221257 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_16">
+      <pose>4.6676711593394185 6.029232451505629 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_17">
+      <pose>5.366032832897007 6.016848959823568 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_18">
+      <pose>5.488598700452913 6.025477027094542 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_8_19">
+      <pose>6.312001493954879 5.955255942841749 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_0">
+      <pose>-6.955400607366981 7.9256081262918014 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_1">
+      <pose>-6.136842008377046 8.073099244020296 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_2">
+      <pose>-5.420674273212615 8.072619387129237 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_3">
+      <pose>-5.135779626929406 8.09291277705551 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_4">
+      <pose>-4.534655883728969 8.068030194782132 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_5">
+      <pose>-4.2826975725209495 7.961444523165711 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_6">
+      <pose>-3.9217769663041246 7.964570005763889 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_7">
+      <pose>-3.2638530602941276 7.91815954453191 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_8">
+      <pose>-2.4287178105904594 8.069533501764623 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_9">
+      <pose>-2.173336279033894 8.022043917676116 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_10">
+      <pose>-1.5975333782113215 8.093482933192288 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_11">
+      <pose>-1.3274534589966607 7.969981561281629 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_12">
+      <pose>2.683030932278688 7.946516284816887 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_13">
+      <pose>3.200406545188226 7.900235468536619 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_14">
+      <pose>3.758755873016641 8.099364558135303 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_15">
+      <pose>3.9345756053267267 8.010378247448541 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_16">
+      <pose>5.031578242093387 8.060649525212666 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_17">
+      <pose>5.063301582259252 7.9706114180411 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_18">
+      <pose>5.941352592762993 7.9657072929949955 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="bush_9_19">
+      <pose>6.638830159981618 8.086768662538706 0 0 0 0</pose>
+      <link name="link">
+        <visual name="bush_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://src/my_robot/meshes/bushes.STL</uri>
+              <scale>0.0003 0.0003 0.0003</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.5 0.100000001 1</ambient>
+            <diffuse>0.300000012 0.699999988 0.300000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+ <model name="ground_plane">
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>100 100</size>
+          </plane>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>100</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>100 100</size>
+          </plane>
+        </geometry>
+        <material>
+          <ambient>0.4 0.3 0.1 1</ambient>
+          <diffuse>0.5 0.4 0.2 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+    </link>
+  </model>
+    <light name="sun" type="directional">
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.10000000000000001 -0.90000000000000002</direction>
+      <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+      <specular>0.200000003 0.200000003 0.200000003 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.01</linear>
+        <constant>0.90000000000000002</constant>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+  </world>
+</sdf>
