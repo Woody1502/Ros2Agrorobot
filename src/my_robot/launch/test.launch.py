@@ -95,6 +95,13 @@ def generate_launch_description():
         arguments=['-d', rviz_config_file],
         parameters=[{'use_sim_time': use_sim_time}]
     )
+    stream_node = Node(
+        package='my_robot',
+        executable='stream',
+        name='stream',
+        output='screen',
+   
+    )
     joy_node = Node(
         package='joy',
         executable='joy_node',
@@ -234,6 +241,7 @@ def generate_launch_description():
             description='QoS used for input sensor topics'),
         # Запуск компонентов
         robot_state_publisher,
+        stream_node,
         gazebo,
         navsat,
         map_node,
