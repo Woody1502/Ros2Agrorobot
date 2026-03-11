@@ -18,8 +18,10 @@ setup(
             glob(os.path.join('urdf', '*.*'))),
         (os.path.join('share', package_name, 'meshes'), 
             glob(os.path.join('meshes', '*.*'))),
-        (os.path.join('share', package_name, 'config'), 
+        (os.path.join('share', package_name, 'config'),
             glob(os.path.join('config', '*.*'))),
+        (os.path.join('share', package_name, 'rviz'),
+            glob(os.path.join('rviz', '*.rviz'))),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -33,7 +35,9 @@ setup(
             'joy_control = my_robot.joy_control:main',
             'acker_odom = my_robot.acker_odom:main',
             'rfdetr = my_robot.rfdetr:main',
-            'stream = my_robot.stream:main'
+            'stream = my_robot.stream:main',
+            'row_driver = my_robot.row_driver:main',
+            'spawn_robot = my_robot.spawn_robot:main',
         ],
     },
 )

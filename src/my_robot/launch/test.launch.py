@@ -1,18 +1,17 @@
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument, ExecuteProcess, RegisterEventHandler
-from launch.event_handlers import OnProcessExit
-from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, Command, FindExecutable
+from launch.actions import DeclareLaunchArgument, ExecuteProcess
+from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
-from launch_ros.substitutions import FindPackageShare
 from ament_index_python.packages import get_package_share_directory
 import os
+
+pkg_vs_nav = get_package_share_directory('visual_multi_crop_row_navigation')
 
 def generate_launch_description():
     # Пути к файлам
     pkg_my_robot = get_package_share_directory('my_robot')
     urdf_file = os.path.join(pkg_my_robot, 'urdf', 'fito.urdf') 
-    world_file = PathJoinSubstitution([pkg_my_robot, 'urdf', 'curved_bushes_world.sdf'])  # Измените на ваш мир
+    world_file = os.path.join(pkg_my_robot, 'urdf', 'garden_rows_world.sdf')
 
     # Аргументы запуска
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
@@ -35,33 +34,28 @@ def generate_launch_description():
         }]
     )
 
-    # Запуск Gazebo
-    gazebo = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            PathJoinSubstitution(
-                [FindPackageShare('ros_gz_sim'), 'launch', 'gz_sim.launch.py']
-            )
-        ),
-        launch_arguments={
-            'gz_args': ['-r ' , world_file, ' -v' ' 4 '],
-            'on_exit_shutdown': 'true',
-        }.items()
+    # Запуск Gazebo (GZ_CONFIG_PATH нужен для gz sim)
+    gazebo = ExecuteProcess(
+        cmd=['gz', 'sim', '-r', world_file, '-v', '4'],
+        output='screen',
+        additional_env={'GZ_CONFIG_PATH': '/usr/share/gz'},
     )
 
-    # Spawn робота в Gazebo
+    # Spawn робота в Gazebo через gz service (без ros_gz_sim)
+    sdf_file = os.path.join(pkg_my_robot, 'urdf', 'fito.sdf')
     spawn_entity = Node(
-        package='ros_gz_sim',
-        executable='create',
-        arguments=[
-            '-name', 'my_robot',
-            '-topic', '/robot_description',
-            '-x', '-12.0',
-            '-y', '0.5',
-            '-z', '1.5',
-            
-            '-allow_renaming', 'true'
-        ],
-        output='screen'
+        package='my_robot',
+        executable='spawn_robot',
+        name='spawn_robot',
+        output='screen',
+        parameters=[{
+            'sdf_path': sdf_file,
+            'robot_name': 'my_robot',
+            'x': -12.0,
+            'y': 0.5,
+            'z': 1.5,
+            'world_name': 'garden_rows_world',
+        }],
     )
 
     # Контроллеры
@@ -86,21 +80,15 @@ def generate_launch_description():
         executable="spawner",
         arguments=["position_controller", "--param-file",ros2_control_params],
     )
-    rviz_config_file = PathJoinSubstitution([pkg_my_robot, 'rviz', 'view_robot.rviz'])
+    rviz_config_file = os.path.join(pkg_my_robot, 'rviz', 'autopilot.rviz')
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',
         name='rviz2',
         output='screen',
         arguments=['-d', rviz_config_file],
-        parameters=[{'use_sim_time': use_sim_time}]
-    )
-    stream_node = Node(
-        package='my_robot',
-        executable='stream',
-        name='stream',
-        output='screen',
-   
+        parameters=[{'use_sim_time': use_sim_time}],
+        additional_env={'QT_QPA_PLATFORM': 'xcb'},
     )
     joy_node = Node(
         package='joy',
@@ -127,12 +115,35 @@ def generate_launch_description():
         }]
     )
     yolo_node = Node(
-        package='my_robot',  # Замените на имя вашего пакета
-        executable='rfdetr',  # Исполняемый файл вашего узла
+        package='my_robot',
+        executable='rfdetr',
         name='rfdetr',
         output='screen',
-        
     )
+
+    # Visual servoing autopilot node
+    vs_params = os.path.join(pkg_vs_nav, 'configs', 'params.yaml')
+    vs_navigation_node = Node(
+        package='visual_multi_crop_row_navigation',
+        executable='vs_navigation',
+        name='vs_navigation',
+        output='screen',
+        parameters=[vs_params, {'use_sim_time': use_sim_time}],
+    )
+
+    # Forward drive node: drives wheels at fixed speed when autopilot is active
+    row_driver_node = Node(
+        package='my_robot',
+        executable='row_driver',
+        name='row_driver',
+        output='screen',
+        parameters=[{
+            'use_sim_time': use_sim_time,
+            'forward_speed': 1.5,
+            'publish_rate': 20.0,
+        }],
+    )
+
     odom_node = Node(
         package='my_robot',  # Замените на имя вашего пакета
         executable='acker_odom',  # Исполняемый файл вашего узла
@@ -241,7 +252,6 @@ def generate_launch_description():
             description='QoS used for input sensor topics'),
         # Запуск компонентов
         robot_state_publisher,
-        stream_node,
         gazebo,
         navsat,
         map_node,
@@ -255,10 +265,11 @@ def generate_launch_description():
         joy_node,
         joy_control_node,
         odom_node,
+        vs_navigation_node,
+        row_driver_node,
         #yolo_node
         #rtabmap_slam,
         #rtab_viz
-        #rear_drive_spawner,
         
 
     ])

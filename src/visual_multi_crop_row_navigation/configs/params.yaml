@@ -1,0 +1,72 @@
+/**:
+  ros__parameters:
+    # === Topics (Gazebo simulation) ===
+    frontColor_topic: '/camera/depth/pure_image'
+    frontDepth_topic: '/camera/depth/image_depth'
+    frontCameraInfo_topic: '/camera/depth/camera_info'
+    backColor_topic: '/camera/depth/pure_image'
+    backDepth_topic: '/camera/depth/image_depth'
+    backCameraInfo_topic: '/camera/depth/camera_info'
+
+    # === Navigation ===
+    # Mode 1: Forward with front camera (default)
+    navigationMode: 1
+    # stationaryDebug: False -> actually publishes steering commands
+    stationaryDebug: False
+
+    # === Velocity limits ===
+    maxOmega: 0.05
+    minOmega: 0.005
+    omegaScaler: 0.08
+    maxLinearVel: 0.5
+    minLinearVel: 0.01
+
+    # === Scanner (horizontal scan across image) ===
+    scanSteps: 10
+    scanStartPoint: 0
+    scanEndPoint: 1280
+    scanWindowWidth: 128
+
+    # === Image processing ===
+    imgResizeRatio: 100
+    minContourArea: 10
+
+    # === ROI for 1280x720 camera image
+    # trim top portion (sky/chassis) and keep where rows are visible
+    enable_roi: True
+    p1:
+    - 0
+    - 200
+    p2:
+    - 1280
+    - 200
+    p3:
+    - 1280
+    - 720
+    p4:
+    - 0
+    - 720
+    p5:
+    - 0
+    - 200
+    p6:
+    - 1280
+    - 200
+    p7:
+    - 1280
+    - 720
+    p8:
+    - 0
+    - 720
+
+    # === Tracker params ===
+    trackingBoxWidth: 200
+    topOffset: 0
+    bottomOffset: 0
+    scaleRatio: 0.4
+
+    # === Feature matching ===
+    linesToPass: 1
+    minKeypointNum: 10
+    maxMatchingDifference: 150
+    minMatchingDifference: 0
