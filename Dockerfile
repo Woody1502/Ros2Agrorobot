@@ -33,6 +33,8 @@ RUN apt-get update && apt-get install -y \
     libgl1-mesa-dri \
     mesa-utils \
     x11-apps \
+    python3-future \
+    python3-shapely \
     && rm -rf /var/lib/apt/lists/*
 
 # Настройка рабочего пространства

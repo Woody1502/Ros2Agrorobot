@@ -10,6 +10,9 @@ Panels:
         - /Camera — автопилот1
         - /LiDAR1
         - /Odometry1
+        - /Path (local)1
+        - /GPS track1
+
       Splitter Ratio: 0.5
     Tree Height: 900
   - Class: rviz_common/Views
@@ -264,19 +267,75 @@ Visualization Manager:
       Enabled: true
       Name: Camera — автопилот
 
-    # ── IMU ─────────────────────────────────────────────────
-    - Acc Scale: 1
-      Class: rviz_imu_plugin/Imu
-      Enabled: false
-      Name: IMU
+    # ── Путь робота ─────────────────────────────────────────
+    - Class: rviz_default_plugins/Path
+      Color: 0; 200; 100
+      Enabled: true
+      Head Diameter: 0.10000000149011612
+      Head Length: 0.07000000029802322
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: Path (local)
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.05000000074505806
+      Shaft Length: 0.10000000149011612
       Topic:
         Depth: 5
         Durability Policy: Volatile
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /imu/data
-      Value: false
+        Value: /odometry/local
+      Value: true
+
+    # ── GPS ──────────────────────────────────────────────────
+    - Class: rviz_default_plugins/Odometry
+      Covariance:
+        Orientation:
+          Alpha: 0.5
+          Color: 255; 255; 127
+          Color Style: Unique
+          Frame: Local
+          Offset: 1
+          Scale: 1
+          Value: false
+        Position:
+          Alpha: 0.3
+          Color: 0; 170; 255
+          Scale: 0.5
+          Value: true
+        Value: false
+      Enabled: true
+      Keep: 500
+      Name: GPS track
+      Position Tolerance: 0.05
+      Shape:
+        Alpha: 1
+        Axes Length: 0.2
+        Axes Radius: 0.01
+        Color: 0; 170; 255
+        Head Length: 0.05
+        Head Radius: 0.015
+        Shaft Length: 0.15
+        Shaft Radius: 0.008
+        Value: Arrow
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /odometry/global
+      Value: true
+      Angle Tolerance: 0.1
+
 
   Enabled: true
   Global Options:

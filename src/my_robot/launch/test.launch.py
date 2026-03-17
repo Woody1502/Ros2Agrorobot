@@ -1,5 +1,5 @@
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, ExecuteProcess
+from launch.actions import DeclareLaunchArgument, ExecuteProcess, TimerAction
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
@@ -38,7 +38,7 @@ def generate_launch_description():
     gazebo = ExecuteProcess(
         cmd=['gz', 'sim', '-r', world_file, '-v', '4'],
         output='screen',
-        additional_env={'GZ_CONFIG_PATH': '/usr/share/gz'},
+        additional_env={'GZ_SIM_SYSTEM_PLUGIN_PATH': '/opt/ros/jazzy/lib'},
     )
 
     # Spawn робота в Gazebo через gz service (без ros_gz_sim)
@@ -265,8 +265,10 @@ def generate_launch_description():
         joy_node,
         joy_control_node,
         odom_node,
-        vs_navigation_node,
-        row_driver_node,
+        TimerAction(
+            period=12.0,
+            actions=[vs_navigation_node, row_driver_node]
+        ),
         #yolo_node
         #rtabmap_slam,
         #rtab_viz
