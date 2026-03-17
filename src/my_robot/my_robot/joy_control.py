@@ -38,13 +38,18 @@ class JoyControlNode(Node):
     def joy_callback(self, msg):
         try:
             # Чтение значений с джойстика
-            left_trigger = msg.axes[5]  # Левый триггер (задний ход)
-            right_trigger = msg.axes[2]  # Правый триггер (передний ход)
+            left_trigger = msg.axes[2]  # Левый триггер (задний ход)
+            right_trigger = msg.axes[5]  # Правый триггер (передний ход)
             left_stick_x = msg.axes[0]   # Левый стик (повороты)
             
+            # Триггеры: покой = +1.0, полностью нажат = -1.0
+            # Нормализуем в диапазон [0, 1]
+            right_normalized = (1.0 - right_trigger) / 2.0
+            left_normalized = (1.0 - left_trigger) / 2.0
+
             # Вычисление линейной скорости (передний/задний ход)
-            forward_speed = right_trigger * self.max_linear_speed
-            backward_speed = left_trigger * self.max_linear_speed
+            forward_speed = right_normalized * self.max_linear_speed
+            backward_speed = left_normalized * self.max_linear_speed
             linear_speed = forward_speed - backward_speed
             
             # Вычисление угловой скорости (повороты)

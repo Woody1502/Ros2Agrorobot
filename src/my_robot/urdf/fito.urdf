@@ -691,7 +691,7 @@
  
     <gazebo>
       <plugin name="gz_ros2_control::GazeboSimROS2ControlPlugin" filename="libgz_ros2_control-system.so">
-        <parameters>/home/alexey/ros2_ws/src/my_robot/config/new_controllers.yaml</parameters>
+        <parameters>/ros2_ws/install/my_robot/share/my_robot/config/new_controllers.yaml</parameters>
       </plugin>
    
     </gazebo>

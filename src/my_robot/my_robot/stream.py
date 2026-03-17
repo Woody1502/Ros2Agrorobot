@@ -23,7 +23,7 @@ class ImageSocketServer(Node):
         self.bridge = CvBridge()
         
         # Настройка серверного сокета
-        self.socket_host = '10.0.2.2'  # Локальный хост
+        self.socket_host = '0.0.0.0'  # Все интерфейсы (совместимо с Docker)
         self.socket_port = 8081
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)

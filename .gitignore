@@ -4,3 +4,5 @@ log/
 checkpoint_best_total.pth
 venv/
 *.pth 
+ros2*
+snapd
