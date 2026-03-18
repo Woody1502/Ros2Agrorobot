@@ -32,28 +32,28 @@
     minContourArea: 10
 
     # === ROI for 1280x720 camera image
-    # trim top portion (sky/chassis) and keep where rows are visible
+    # p1-p4: right side exclusion strip (blackout), p5-p8: left side exclusion strip (blackout)
     enable_roi: True
     p1:
+    - 1130
     - 0
-    - 200
     p2:
     - 1280
-    - 200
+    - 0
     p3:
     - 1280
     - 720
     p4:
-    - 0
+    - 1130
     - 720
     p5:
     - 0
-    - 200
+    - 0
     p6:
-    - 1280
-    - 200
+    - 150
+    - 0
     p7:
-    - 1280
+    - 150
     - 720
     p8:
     - 0
@@ -64,6 +64,10 @@
     topOffset: 0
     bottomOffset: 0
     scaleRatio: 0.4
+
+    # === Lateral correction gain (steering += -lateralGain * P[0]) ===
+    # P[0] is lateral offset in pixels from image center (~[-640, 640])
+    lateralGain: 0.0005
 
     # === Feature matching ===
     linesToPass: 1

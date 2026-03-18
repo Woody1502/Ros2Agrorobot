@@ -38,6 +38,7 @@ setup(
             'stream = my_robot.stream:main',
             'row_driver = my_robot.row_driver:main',
             'spawn_robot = my_robot.spawn_robot:main',
+            'camera_tilt_gui = my_robot.camera_tilt_gui:main',
         ],
     },
 )

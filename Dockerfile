@@ -35,6 +35,7 @@ RUN apt-get update && apt-get install -y \
     x11-apps \
     python3-future \
     python3-shapely \
+    python3-tk \
     && rm -rf /var/lib/apt/lists/*
 
 # Настройка рабочего пространства

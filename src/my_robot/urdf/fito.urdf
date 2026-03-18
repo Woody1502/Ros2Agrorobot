@@ -49,10 +49,12 @@
 
   </link>
 
-  <joint name="front_wheels_base_to_depth_camera" type="fixed">
+  <joint name="front_wheels_base_to_depth_camera" type="revolute">
   <parent link="base_link" />
   <child link="depth_camera_link" />
-  <origin xyz="-2.3 0 1" rpy="0 0 0" />  <!-- Adjust position as needed -->
+  <origin xyz="-2.3 0 1" rpy="0 0 0" />
+  <axis xyz="0 1 0" />
+  <limit lower="0.0" upper="2.09" effort="10" velocity="1"/>
 </joint>
 
 <link name="depth_camera_link">
@@ -683,8 +685,16 @@
         <state_interface name="position"/>
         <state_interface name="velocity"/>
       </joint>
-      
-      
+
+      <!-- Camera tilt (pitch control) -->
+      <joint name="front_wheels_base_to_depth_camera">
+        <command_interface name="position">
+          <param name="min">0.0</param>
+          <param name="max">2.09</param>
+        </command_interface>
+        <state_interface name="position"/>
+      </joint>
+
     </ros2_control>
   
 

@@ -125,6 +125,7 @@ class VisualServoingNode(Node):
             ('minOmega', 0.01),
             ('maxLinearVel', 0.5),
             ('minLinearVel', 0.01),
+            ('lateralGain', 0.0005),
         ])
 
         # settings
@@ -195,6 +196,7 @@ class VisualServoingNode(Node):
         self.minOmega = self.get_parameter('minOmega').value
         self.maxLinearVel = self.get_parameter('maxLinearVel').value
         self.minLinearVel = self.get_parameter('minLinearVel').value
+        self.lateralGain = self.get_parameter('lateralGain').value
 
         # images
         self.frontImg = None
@@ -256,9 +258,11 @@ class VisualServoingNode(Node):
             #self.setRobotVelocities(ctlCommands[0], 0.0, ctlCommands[1])
             #print('CTLcommands:',ctlCommands)
             position_command = Float64MultiArray()
-    # Здесь нужно преобразовать angular_speed в угол поворота механизма
-    # Это зависит от вашей конкретной реализации
-            position_command.data = [-self.imageProcessor.ang]
+            if self.imageProcessor.P is not None:
+                lateral_correction = self.lateralGain * self.imageProcessor.P[0]
+            else:
+                lateral_correction = 0.0
+            position_command.data = [-self.imageProcessor.ang - lateral_correction]
             self.position_pub.publish(position_command)
 
                 

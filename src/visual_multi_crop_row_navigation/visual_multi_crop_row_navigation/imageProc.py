@@ -71,6 +71,8 @@ class imageProc:
         self.isInitialized = False
 
         self.cropRowEnd = False
+        self.P = None
+        self.ang = 0.0
 
         self.trackingBoxLoc = []
 

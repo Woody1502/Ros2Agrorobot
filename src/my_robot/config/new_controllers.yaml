@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 30  
+    update_rate: 30
     use_sim_time: true
 
     joint_broad:
@@ -10,6 +10,8 @@ controller_manager:
       type: position_controllers/JointGroupPositionController
     velocity_controller:
       type: velocity_controllers/JointGroupVelocityController
+    camera_tilt_controller:
+      type: forward_command_controller/ForwardCommandController
 
 position_controller:
   ros__parameters:
@@ -19,8 +21,14 @@ position_controller:
 velocity_controller:
   ros__parameters:
     type: velocity_controllers/JointGroupVelocityController
-    joints: 
+    joints:
         - front_right_base_to_front_right_wheel
         - front_left_base_to_front_left_wheel
         - back_right_base_to_back_right_wheel
         - back_left_base_to_back_left_wheel
+
+camera_tilt_controller:
+  ros__parameters:
+    joints:
+      - front_wheels_base_to_depth_camera
+    interface_name: position

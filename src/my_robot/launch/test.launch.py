@@ -80,6 +80,19 @@ def generate_launch_description():
         executable="spawner",
         arguments=["position_controller", "--param-file",ros2_control_params],
     )
+
+    camera_tilt_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["camera_tilt_controller", "--param-file", ros2_control_params],
+    )
+
+    camera_tilt_gui = Node(
+        package='my_robot',
+        executable='camera_tilt_gui',
+        name='camera_tilt_gui',
+        output='screen',
+    )
     rviz_config_file = os.path.join(pkg_my_robot, 'rviz', 'autopilot.rviz')
     rviz_node = Node(
         package='rviz2',
@@ -265,6 +278,8 @@ def generate_launch_description():
         joy_node,
         joy_control_node,
         odom_node,
+        camera_tilt_spawner,
+        camera_tilt_gui,
         TimerAction(
             period=12.0,
             actions=[vs_navigation_node, row_driver_node]

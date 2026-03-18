@@ -86,22 +86,6 @@
           </friction>
         </surface>
       </collision>
-      <collision name='base_footprint_fixed_joint_lump__depth_camera_link_collision_7'>
-        <pose>2.2999999999999998 -2.8166876380389121e-16 1.74 0 0 3.1415926535897931</pose>
-        <geometry>
-          <box>
-            <size>0.070000000000000007 0.050000000000000003 0.050000000000000003</size>
-          </box>
-        </geometry>
-        <surface>
-          <contact>
-            <ode/>
-          </contact>
-          <friction>
-            <ode/>
-          </friction>
-        </surface>
-      </collision>
       <collision name='base_footprint_fixed_joint_lump__gps_link_collision_8'>
         <pose>0 0 0.81000000000000005 0 0 3.1415926535897931</pose>
         <geometry>
@@ -223,18 +207,6 @@
           <ambient>0.239002109 0.0494327955 1 1</ambient>
         </material>
       </visual>
-      <visual name='base_footprint_fixed_joint_lump__depth_camera_link_visual_7'>
-        <pose>2.2999999999999998 -2.8166876380389121e-16 1.74 0 0 3.1415926535897931</pose>
-        <geometry>
-          <box>
-            <size>0.070000000000000007 0.050000000000000003 0.050000000000000003</size>
-          </box>
-        </geometry>
-        <material>
-          <diffuse>0 0 1 1</diffuse>
-          <ambient>0 0 1 1</ambient>
-        </material>
-      </visual>
       <visual name='base_footprint_fixed_joint_lump__gps_link_visual_8'>
         <pose>0 0 0.81000000000000005 0 0 3.1415926535897931</pose>
         <geometry>
@@ -287,38 +259,6 @@
         <visualize>true</visualize>
         <pose>0.92000000000000004 -0.00214511 2.0384600000000002 0 0 3.1415899999999999</pose>
         <gz_frame_id>lidar</gz_frame_id>
-      </sensor>
-      <sensor name='rs_front' type='rgbd_camera'>
-        <always_on>true</always_on>
-        <update_rate>10</update_rate>
-        <camera>
-          <horizontal_fov>1.50098</horizontal_fov>
-          <image>
-            <width>1280</width>
-            <height>720</height>
-            <format>B8G8R8</format>
-          </image>
-          <clip>
-            <near>0.01</near>
-            <far>300</far>
-          </clip>
-          <depth_camera>
-            <clip>
-              <near>0.10000000000000001</near>
-              <far>10</far>
-            </clip>
-            <output>depths</output>
-          </depth_camera>
-          <noise>
-            <type>gaussian</type>
-            <mean>0</mean>
-            <stddev>0.0070000000000000001</stddev>
-          </noise>
-        </camera>
-        <topic>rs_front</topic>
-        <visualize>true</visualize>
-        <pose>2.2999999999999998 -2.8166899999999998e-16 1.74 1.9338061282449614e-21 1.3500000000000005 -2.6535899999999983e-06</pose>
-        <gz_frame_id>depth_camera_link</gz_frame_id>
       </sensor>
       <sensor name='navsat' type='navsat'>
         <always_on>true</always_on>
@@ -705,12 +645,61 @@
     <frame name='lidar_base' attached_to='base_link_to_lidar_base'>
       <pose>0 0 0 0 0 0</pose>
     </frame>
-    <frame name='front_wheels_base_to_depth_camera' attached_to='base_link'>
-      <pose>-2.2999999999999998 0 1 0 0 0</pose>
-    </frame>
-    <frame name='depth_camera_link' attached_to='front_wheels_base_to_depth_camera'>
-      <pose>0 0 0 0 0 0</pose>
-    </frame>
+    <joint name='front_wheels_base_to_depth_camera' type='revolute'>
+      <pose relative_to='base_footprint'>2.2999999999999998 0 1.74 0 0 0</pose>
+      <parent>base_footprint</parent>
+      <child>depth_camera_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>0.0</lower>
+          <upper>2.09</upper>
+          <effort>10</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <initial_position>1.35</initial_position>
+      </axis>
+    </joint>
+    <link name='depth_camera_link'>
+      <pose relative_to='front_wheels_base_to_depth_camera'>0 0 0 0 0 0</pose>
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+        </inertia>
+      </inertial>
+      <collision name='depth_camera_link_collision'>
+        <geometry><box><size>0.07 0.05 0.05</size></box></geometry>
+      </collision>
+      <visual name='depth_camera_link_visual'>
+        <geometry><box><size>0.07 0.05 0.05</size></box></geometry>
+        <material><diffuse>0 0 1 1</diffuse><ambient>0 0 1 1</ambient></material>
+      </visual>
+      <sensor name='rs_front' type='rgbd_camera'>
+        <always_on>true</always_on>
+        <update_rate>10</update_rate>
+        <camera>
+          <horizontal_fov>1.50098</horizontal_fov>
+          <image><width>1280</width><height>720</height><format>B8G8R8</format></image>
+          <clip><near>0.01</near><far>300</far></clip>
+          <depth_camera>
+            <clip><near>0.1</near><far>10</far></clip>
+            <output>depths</output>
+          </depth_camera>
+          <noise><type>gaussian</type><mean>0</mean><stddev>0.007</stddev></noise>
+        </camera>
+        <topic>rs_front</topic>
+        <visualize>true</visualize>
+        <pose>0 0 0 0 0 0</pose>
+        <gz_frame_id>depth_camera_link</gz_frame_id>
+      </sensor>
+    </link>
     <frame name='gps_joint' attached_to='base_link'>
       <pose>0 0 0.070000000000000007 0 0 0</pose>
     </frame>
