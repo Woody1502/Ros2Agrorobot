@@ -42,7 +42,8 @@ import image_geometry
 import message_filters
 from rclpy.node import Node
 from rclpy.time import Time
-from sensor_msgs.msg import CameraInfo, Image
+from sensor_msgs.msg import CameraInfo, Image, Joy
+from std_msgs.msg import Int32MultiArray
 
 import tf2_geometry_msgs.tf2_geometry_msgs
 import visual_multi_crop_row_navigation.camera as cam
@@ -221,7 +222,37 @@ class VisualServoingNode(Node):
 
         self.featureMatcher = featureMatching(self.featureParams)
 
+        # Gamepad: button Y (index 3 on Xbox) resets the tracker
+        self._prev_joy_buttons = []
+        self.create_subscription(Joy, '/joy', self._joy_callback, 10)
+
+        # ROI live update from GUI: [left_margin, right_margin, enable(0/1)]
+        self.create_subscription(Int32MultiArray, '/vs_nav/roi', self._roi_callback, 10)
+
         self.get_logger().info("#[VS] navigator initialied ... ")
+
+    def _roi_callback(self, msg):
+        if len(msg.data) < 3:
+            return
+        left, right, enable = msg.data[0], msg.data[1], bool(msg.data[2])
+        w, h = 1280, 720
+        self.imageProcessor.roiParams = {
+            'enable_roi': enable,
+            'p1': [w - right, 0], 'p2': [w, 0], 'p3': [w, h], 'p4': [w - right, h],
+            'p5': [0, 0], 'p6': [left, 0], 'p7': [left, h], 'p8': [0, h],
+        }
+        self.imageProcessor.reset()
+        self.get_logger().info(
+            f'#[VS] ROI updated: left={left}px right={right}px enable={enable}')
+
+    def _joy_callback(self, msg):
+        buttons = list(msg.buttons)
+        # Rising edge detection: button 3 (Y on Xbox) just pressed
+        if (len(self._prev_joy_buttons) > 3 and len(buttons) > 3
+                and buttons[3] == 1 and self._prev_joy_buttons[3] == 0):
+            self.get_logger().info('#[VS] Tracker reset by gamepad (Y button)')
+            self.imageProcessor.reset()
+        self._prev_joy_buttons = buttons
 
     # main function to guide the robot through crop rows
     def navigate(self):

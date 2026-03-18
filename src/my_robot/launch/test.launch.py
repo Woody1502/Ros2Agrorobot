@@ -52,7 +52,7 @@ def generate_launch_description():
             'sdf_path': sdf_file,
             'robot_name': 'my_robot',
             'x': -12.0,
-            'y': 0.5,
+            'y': -4.0,
             'z': 1.5,
             'world_name': 'garden_rows_world',
         }],

@@ -586,6 +586,8 @@ class imageProc:
         """
         if self.primaryRGBImg.size != 0:
             self.graphicsImg = self.primaryRGBImg.copy()
+            if len(self.mainLine_up) == 0 or len(self.mainLine_down) == 0:
+                return
             # main line
             cv.line(self.graphicsImg, (int(self.mainLine_up[0]), int(self.mainLine_up[1])), (int(
                 self.mainLine_down[0]), int(self.mainLine_down[1])), (255, 0, 0), thickness=3)
