@@ -232,18 +232,20 @@ class VisualServoingNode(Node):
         self.get_logger().info("#[VS] navigator initialied ... ")
 
     def _roi_callback(self, msg):
-        if len(msg.data) < 3:
+        if len(msg.data) < 5:
             return
-        left, right, enable = msg.data[0], msg.data[1], bool(msg.data[2])
+        lb, lt, rb, rt, enable = (msg.data[0], msg.data[1],
+                                   msg.data[2], msg.data[3], bool(msg.data[4]))
         w, h = 1280, 720
+        # Perspective-aware trapezoid: wider exclusion near (bottom), narrower far (top)
         self.imageProcessor.roiParams = {
             'enable_roi': enable,
-            'p1': [w - right, 0], 'p2': [w, 0], 'p3': [w, h], 'p4': [w - right, h],
-            'p5': [0, 0], 'p6': [left, 0], 'p7': [left, h], 'p8': [0, h],
+            'p1': [w - rt, 0], 'p2': [w, 0], 'p3': [w, h], 'p4': [w - rb, h],
+            'p5': [0, 0],      'p6': [lt, 0], 'p7': [lb, h], 'p8': [0, h],
         }
         self.imageProcessor.reset()
         self.get_logger().info(
-            f'#[VS] ROI updated: left={left}px right={right}px enable={enable}')
+            f'#[VS] ROI updated: L bot={lb} top={lt} | R bot={rb} top={rt} | enable={enable}')
 
     def _joy_callback(self, msg):
         buttons = list(msg.buttons)
