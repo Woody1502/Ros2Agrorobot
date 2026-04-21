@@ -130,13 +130,20 @@ def generate_launch_description():
         output='screen',
     )
 
+    camera_gui = Node(
+        package='my_robot',
+        executable='camera_tilt_gui',
+        output='screen',
+    )
+
     return LaunchDescription([
         robot_state_publisher,
         gazebo_server,
-        TimerAction(period=1.5, actions=[gazebo_gui]),
-        TimerAction(period=3.0, actions=[spawn_robot, ros_gz_bridge, acker_odom]),
-        TimerAction(period=6.0, actions=[joint_broad_spawner]),
-        TimerAction(period=9.0, actions=[velocity_spawner, steer_spawner]),
+        TimerAction(period=1.5,  actions=[gazebo_gui]),
+        TimerAction(period=3.0,  actions=[spawn_robot, ros_gz_bridge, acker_odom]),
+        TimerAction(period=6.0,  actions=[joint_broad_spawner]),
+        TimerAction(period=9.0,  actions=[velocity_spawner, steer_spawner]),
         TimerAction(period=12.0, actions=[camera_tilt_spawner, row_driver]),
         TimerAction(period=15.0, actions=[field_mission, vs_node]),
+        TimerAction(period=18.0, actions=[camera_gui]),
     ])
