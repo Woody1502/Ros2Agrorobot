@@ -14,12 +14,19 @@ class AckermanOdometry(Node):
         
         # Параметры из URDF
         self.declare_parameter('wheel_radius', 0.37)  # Радиус колеса (в метрах)
-        self.declare_parameter('wheel_base', 2.11)    # Колесная база (расстояние между передней и задней осями)
-        self.declare_parameter('track_width', 1.28)   # Ширина колеи
-        
-        self.wheel_radius = self.get_parameter('wheel_radius').value
-        self.wheel_base = self.get_parameter('wheel_base').value
-        self.track_width = self.get_parameter('track_width').value
+        # Геометрия рулевого механизма: весь передний блок поворачивается как единое целое
+        # вокруг шарнира base_link_to_wheeling_mech.
+        # rear_to_pivot  = 0.812 (задняя ось) + 1.051 (шарнир) = 1.863 м
+        # pivot_to_axle  = 0.585 м (шарнир → передняя ось)
+        # Точная формула: R = (pivot_to_axle + rear_to_pivot * cos δ) / sin δ
+        self.declare_parameter('rear_to_pivot',  1.863)  # задняя ось → шарнир, м
+        self.declare_parameter('pivot_to_axle',  0.585)  # шарнир → передняя ось, м
+        self.declare_parameter('track_width',    1.28)   # ширина колеи (не используется в расчёте)
+
+        self.wheel_radius   = self.get_parameter('wheel_radius').value
+        self.rear_to_pivot  = self.get_parameter('rear_to_pivot').value
+        self.pivot_to_axle  = self.get_parameter('pivot_to_axle').value
+        self.track_width    = self.get_parameter('track_width').value
         
         # Текущее состояние
         self.x = 0.0
@@ -61,9 +68,11 @@ class AckermanOdometry(Node):
         # Рассчитываем среднюю скорость
         linear_velocity = (self.left_wheel_velocity + self.right_wheel_velocity) *0.5
         
-        # Кинематика Акермана
-        if abs(self.steering_angle) > 0.001:  # Если руль повернут
-            turn_radius = self.wheel_base / tan(self.steering_angle)
+        # Кинематика: передний блок поворачивается как единое целое вокруг шарнира
+        # R = (pivot_to_axle + rear_to_pivot * cos δ) / sin δ
+        if abs(self.steering_angle) > 0.001:
+            turn_radius = (self.pivot_to_axle + self.rear_to_pivot * cos(self.steering_angle)) \
+                          / sin(self.steering_angle)
             angular_velocity = linear_velocity / turn_radius
         else:
             angular_velocity = 0.0
