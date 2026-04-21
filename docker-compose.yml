@@ -1,4 +1,40 @@
 services:
+  # ── headless: Gazebo без GUI, для тестирования навигации ──────────────────
+  ros2_headless:
+    image: ros2_agrorobot
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: agrorobot_headless
+    network_mode: host
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu, display, graphics, utility]
+    environment:
+      - GZ_HEADLESS_RENDERING=1
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - NVIDIA_VISIBLE_DEVICES=all
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+    volumes:
+      - ./src:/ros2_ws/src:ro
+      - ./ros2_ws_build:/ros2_ws/build
+      - ./ros2_ws_install:/ros2_ws/install
+      - ./ros2_ws_log:/ros2_ws/log
+    devices:
+      - /dev/dri
+    stdin_open: true
+    tty: true
+    command: >
+      bash -c "cd /ros2_ws &&
+               colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release 2>&1 | tail -5 &&
+               source install/setup.bash &&
+               ros2 launch my_robot headless_test.launch.py"
+
+  # ── полный режим с GUI (оригинал) ─────────────────────────────────────────
   ros2_sim:
     image: ros2_agrorobot
     build:
@@ -20,6 +56,9 @@ services:
       - XDG_RUNTIME_DIR=/tmp/runtime-root
       - NVIDIA_DRIVER_CAPABILITIES=all
       - NVIDIA_VISIBLE_DEVICES=all
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      - GZ_HEADLESS_RENDERING=1
+      - LD_PRELOAD=/opt/ros/jazzy/lib/libfastcdr.so.2
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ./src:/ros2_ws/src:ro
@@ -36,4 +75,4 @@ services:
       bash -c "cd /ros2_ws &&
                colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release &&
                source install/setup.bash &&
-               ros2 launch my_robot test.launch.py"
+               ros2 launch my_robot visual_test.launch.py"

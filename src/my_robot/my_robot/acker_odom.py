@@ -52,7 +52,7 @@ class AckermanOdometry(Node):
         # Парсим данные из joint_states
         for i, name in enumerate(msg.name):
             if name == "base_link_to_wheeling_mech":
-                self.steering_angle = msg.position[i]/2
+                self.steering_angle = msg.position[i]
             elif name == "back_left_base_to_back_left_wheel":
                 self.left_wheel_velocity = msg.velocity[i] * self.wheel_radius
             elif name == "back_right_base_to_back_right_wheel":

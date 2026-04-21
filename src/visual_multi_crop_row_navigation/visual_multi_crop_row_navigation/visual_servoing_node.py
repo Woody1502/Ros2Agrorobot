@@ -34,7 +34,7 @@
 from __future__ import division, print_function
 
 import time
-from std_msgs.msg import Float64MultiArray
+from std_msgs.msg import Bool, Float64MultiArray
 from cv_bridge import CvBridge, CvBridgeError
 from future.builtins import input
 from geometry_msgs.msg import Twist
@@ -94,6 +94,13 @@ class VisualServoingNode(Node):
             Float64MultiArray,
             '/position_controller/commands',
             10)
+
+        # ── интеграция с mission node ──────────────────────────────────────
+        # Конец ряда: публикуем True когда imageProc.cropRowEnd поднят
+        self.row_end_pub = self.create_publisher(Bool, '/vs_nav/row_end', 10)
+        # Пауза: mission node пишет False → VS не публикует команды руля
+        self.vs_active = True
+        self.create_subscription(Bool, '/mission/vs_active', self._vs_active_cb, 10)
         # declare all parameters and their defaults
         self.declare_parameters('', [
             ('navigationMode', 1),
@@ -247,6 +254,11 @@ class VisualServoingNode(Node):
         self.get_logger().info(
             f'#[VS] ROI updated: L bot={lb} top={lt} | R bot={rb} top={rt} | enable={enable}')
 
+    def _vs_active_cb(self, msg: Bool):
+        self.vs_active = msg.data
+        state = 'ACTIVE' if self.vs_active else 'PAUSED'
+        self.get_logger().info(f'#[VS] Visual servoing {state} by mission node.')
+
     def _joy_callback(self, msg):
         buttons = list(msg.buttons)
         # Rising edge detection: button 3 (Y on Xbox) just pressed
@@ -258,6 +270,10 @@ class VisualServoingNode(Node):
 
     # main function to guide the robot through crop rows
     def navigate(self):
+        # Если mission node поставил VS на паузу — не публикуем команды
+        if not self.vs_active:
+            return
+
         # get the currently used image
         primaryRGB, primaryDepth = self.getProcessingImage(self.frontImg,
                                                            self.frontDepth,
@@ -274,6 +290,11 @@ class VisualServoingNode(Node):
             else:
                 self.get_logger().info("Tracker reinitialized successfully!")
         else:
+            # Публикуем сигнал конца ряда для mission node
+            row_end_msg = Bool()
+            row_end_msg.data = bool(self.imageProcessor.cropRowEnd)
+            self.row_end_pub.publish(row_end_msg)
+
             print("cropLaneFound", self.imageProcessor.cropLaneFound, "cropRowEnd",
                   self.imageProcessor.cropRowEnd)
             # if the robot is currently following a line and is not turning just compute the controls

@@ -39,6 +39,8 @@ setup(
             'row_driver = my_robot.row_driver:main',
             'spawn_robot = my_robot.spawn_robot:main',
             'camera_tilt_gui = my_robot.camera_tilt_gui:main',
+            'field_mission = my_robot.field_mission_node:main',
+            'fake_robot = my_robot.fake_robot_node:main',
         ],
     },
 )
